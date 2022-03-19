@@ -7,3 +7,10 @@
 #### Há como monitorar o seu "LIFE", pela barra de energia na parte superior direira
 #### Caso a sua barra chegar ao final, ocasionada pela perda de pontos, você perderá o jogo
 #### Caswo perder o jogo poderá jogar novamente clicando no botão específico 
+####---------------------------------------------------------------------------
+#### ----------------------->> INSTRUÇÕES DO JOGO <<---------------------------
+####
+#### TECLA "W" => Move o helicóptero para cima
+#### TECLA "S" => Move o helicóptero para baixo
+#### TECLA "D" => Atira
+
