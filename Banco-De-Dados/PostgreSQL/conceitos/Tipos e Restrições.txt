@@ -1,0 +1,80 @@
+Tipos e Restrições
+
+Tipos
+
+
+Números 
+
+smallint: armazena números inteiros pequenos com precisão de 16 bits. 
+
+integer: armazena números inteiros com precisão de 32 bits. . 
+
+bigint: armazena números inteiros grandes com precisão de 64 bits.
+
+numeric(precision, scale): armazena números de precisão arbitrária com precisão "precision" e escala "scale".
+Exemplo: numeric(5,2) '1234.56'. 
+
+
+Serial 
+
+No PostgreSQL, o tipo "serial" é um atalho para criar uma coluna com um tipo inteiro e configurar automaticamente 
+uma série de valores para essa coluna. 
+
+
+
+
+
+smallserial cria uma coluna que se incrementa automáticamente com o tipo smallint. 
+
+serial cria uma coluna que se incrementa automáticamente com o tipo integer. 
+
+bigserial cria uma coluna que se incrementa automáticamente com o tipo bigint.
+
+
+Caracaters
+
+char(n): armazena uma string fixa de comprimento n.
+
+varchar(n): armazena uma string variável de comprimento até n.
+
+text: armazena uma string de tamanho ilimitado.
+
+
+
+Data e hora
+
+date: armazena a data (ano, mês e dia) sem hora. Exemplo: date '2022-01-01' 
+
+time: armazena a hora (horas, minutos, segundos) sem data. Exemplo: time '12:34:56' 
+
+timestamp: armazena a data e a hora com precisão de milissegundos. Exemplo: timestamp '2022-01-01 12:34:56.789' 
+
+
+
+
+Lógicos
+
+
+PostgreSQL suporta o tipo lógico "boolean" que pode armazenar valores verdadeiros (TRUE), 
+falsos (FALSE) ou nulos (NULL). 
+
+
+Restrições
+
+NOT NULL - campo não pode ser nulos.
+
+UNIQUE - A restrição UNIQUE garante que não haja valores duplicados em uma coluna específica. 
+
+DEFAULT - Define valor padrão para a coluna. 
+
+CHECK  - garante que os valores em uma coluna atendam a uma determinada condição
+Exemplo: 
+
+CREATE TABLE IF NOT EXISTS consumables (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price NUMERIC(10,2) NOT NULL,
+  CHECK (price > 0)
+);
+
+
