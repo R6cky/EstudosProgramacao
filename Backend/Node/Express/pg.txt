@@ -1,0 +1,5 @@
+"pg" é um pacote de Node.js para se conectar a um banco de dados PostgreSQL. 
+
+npm install pg
+
+npm install @types/pg --save-dev

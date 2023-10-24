@@ -1,0 +1,53 @@
+npm init -y
+
+
+Instalando dependências:
+npm i -S typeorm@0.3.11 reflect-metadata dotenv pg
+
+
+Instalando dependências de desenvolvimento
+npm i -D typescript @types/node
+
+
+Dependências da aplicação:
+
+    typeorm: o ORM que estaremos utilizando com Express
+
+    reflect-metadata: usado para transformar os “decorators” do TypeORM para usar em queries SQL.
+
+    dotenv: usamos para carregar as variáveis de ambiente mantidas no “.env”.
+
+    pg: o TypeORM utiliza essa biblioteca para fazer queries SQL no PostgreSQL.
+
+
+Dependências de desenvolvimento da aplicação:
+
+    typescript: utilizamos para conseguirmos rodar arquivos .ts.
+
+    @types/node: como utilizaremos TypeScript, precisamos instalar as tipagens do Node.
+
+
+
+npx tsc --init
+Cria arquivo tsconfig.json 
+
+Colar este conteúdo no arquivo ->>
+
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "typeRoots": ["src/@types", "node_modules/@types"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["src", "app.ts"],
+  "exclude": ["node_modules"]
+}
+

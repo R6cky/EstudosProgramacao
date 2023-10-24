@@ -1,0 +1,10 @@
+yarn create react-app nome-do-projeto  -> YARN 
+yarn start -> iniciar projeto
+typescrypt - yarn create react-app my-app --template typescript
+
+npx create-react-app nome-do-projeto --> NPM 
+typescrypt - npx create-react-app my-app --template typescript 
+
+npm start -> iniciar projeto
+
+

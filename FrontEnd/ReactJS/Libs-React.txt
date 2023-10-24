@@ -1,0 +1,33 @@
+Instalação de libs no react --> "yarn add nome-biblioteca"
+
+Styled-Components
+
+react-router-dom
+yarn add react-router-dom
+
+
+react-icons
+yarn add react-icons
+
+
+yarn add yup react-hook-form @hookform/resolvers
+
+*import * as yup from 'yup'
+import { useForm } from "react-hook-form"
+import { yupResolver } from '@hookform/resolvers/yup'
+*
+
+axios
+yarn add axios
+import axios from "axios"
+
+
+
+--------------------------------------------------------------------------------
+
+Libs internas
+
+useState
+useEffect
+createContext
+useContext

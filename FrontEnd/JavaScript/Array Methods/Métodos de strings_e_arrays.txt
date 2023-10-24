@@ -1,0 +1,166 @@
+solidificar conhecimentos em métodos
+Lógica
+Leitura de códigos de outras pessoas
+
+
+
+Métodos de array 
+
+
+
+MAP --- O método map() invoca a função callback passada por argumento para cada elemento do Array e devolve um NOVO ARRAY como resultado.
+parâmetros da callback (element, index, array)
+RETORNA novo array
+
+
+
+FOREACH --- O método forEach() executa uma dada função em cada elemento de um array.
+parâmetros da callback (element, index, array)
+NÃO TEM RETORNO
+
+
+
+
+FILTER ---- O método filter() cria um NOVO ARRAY com todos os elementos que passaram no teste implementado pela função fornecida.
+parâmetros da callback (element, index, array)
+TEM RETORNO 
+
+
+
+
+FIND -- O find()método RETORNA O PRIMEIRO ELEMENTO na matriz fornecida que satisfaça a função de teste fornecida. 
+Se nenhum valor satisfizer a função de teste, undefined é retornado.
+parâmetros da callback (element, index, array)
+
+
+
+
+
+
+FIND_INDEX -- O findIndex()método RETORNA O ÍNDICE do PRIMEIRO ELEMENTO em uma matriz QUE SATISFAZ a função de teste fornecida. 
+Se nenhum elemento satisfizer a função de teste, -1 será retornado.
+
+
+
+INDEXOF -- Se você precisar encontrar o índice de um valor , use indexOf().
+(É semelhante a findIndex(), mas verifica a igualdade de cada elemento com o valor em vez de usar uma função de teste.)
+
+
+
+
+INCLUDES -- Se você precisar descobrir se um valor existe em uma matriz, use includes(). 
+Novamente, ele verifica a igualdade de cada elemento com o valor em vez de usar uma função de teste.
+O includes()método determina se um array inclui um determinado valor entre suas entradas, RETORNANDO TRUE ou FALSE conforme apropriado.
+
+
+
+
+SOME -- Se você precisar descobrir se algum elemento satisfaz a FUNÇÃO DE TESTE fornecida, use some().
+O some()método testa SE PELO MENOS UM ELEMENTO na matriz passa no teste implementado pela FUNÇÃO FORNECIDA. Retorna true se, no array, 
+encontrar um elemento para o qual a função fornecida retorna true; caso contrário, retorna falso. Ele NÃO MODIFICA a matriz
+
+
+
+
+
+
+join() -- O método join() junta todos os elementos de um array (ou um array-like object) em uma string e retorna esta string. 
+Obs: Se um elemento é undefined ou null, ele é convertido em uma string vazia.
+
+
+
+every() --- O método every() testa se todos os elementos do array passam pelo teste implementado pela função fornecida. Este método retorna um valor booleano (TRUE or FALSE).
+
+
+
+
+
+REDUCE
+
+
+
+
+
+
+
+MÉTODOS DE STRINGS
+
+
+
+split (Somente em strings)
+    -> *Divide uma string em uma lista orgenada de substrings
+       * Divide essas substrings em um array e RETORNA esse array
+       * Divisão é feita procurando um padrão
+       * Padrão é fornecido na chamada do método
+	Sintax => str.split('')
+
+
+	
+**
+slice (Também utilizado com ARRAYS)
+       *retorna uma cópia de parte de um array a partir de um subarray
+	criado entre as posições início e fim (fim não é incluído) 
+	de um array original. O Array original não é modificado.
+	
+	*Se início for omitido, slice inicia a partir do índice 0.
+	*Se início for maior que o comprimento do array, é retornado um array vazio.
+	*RETORNA Um novo array contendo os elementos extraídos.
+	?*Se um objeto referenciado é alterado, as alterações 
+	 são visiveis em ambos, no novo array e no array original.
+	?*Alterações na string ou número em um array não afetam o outro array.
+	Sintax => str.slice(0,3)
+		  arr.slice(0,3)
+	
+	
+
+
+trim()
+	* Remove espaços da eextremidade da string
+	Sintax => str.trim()
+	RETORNA o texto modificado, não altera a string original.
+
+
+
+trimStart()
+	* Remove espaços apenas no início
+	Sintax => str.trimStart()
+	RETORNA o texto modificado, não altera a string original.
+
+trimEnd()
+	* Remove espaços apenas no fim
+	Sintax => str.trimEnd()
+ 	RETORNA o texto modificado, não altera a string original.
+
+
+
+
+toUpperCase() 
+	* Transforma letras em maiúsculas
+	* RETORNA uma nova string
+
+
+toLowerCase() 
+	* Transforma letras em maiúsculas
+	* RETORNA uma nova string
+
+**
+replace()
+	* Substitui partes de uma string
+	* RETORNA uma nova string
+	Sintax => str.replace('dog', 'monkey') -> (valorAntigo, valorAtual) ---> É obrigatório criar uma variável que recebe aquele retorno de retorno**
+	Sintax Using Regex => str.replace(regex, 'ferret')
+	Tem muita coisa legal (pesquisar depois)
+
+
+
+replaceAll()
+	Faz a mesma coisa que a replace(), porém em todas as
+	ocorrências da string
+
+
+
+
+
+
+
+

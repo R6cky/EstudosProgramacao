@@ -1,0 +1,13 @@
+Iniciar projeto do zero.
+
+npx create-react-app my-app --template typescript
+---> Inicia projeto typescript no react com npm
+
+yarn create react-app my-app --template typescript
+---> Inicia projeto typescript no react com yarn
+
+---
+
+Iniciar typescript em projeto já existente
+
+https://canvas.kenzie.com.br/courses/44/pages/s5-07-%7C-aula-typescript-no-react-instalacao?module_item_id=8687

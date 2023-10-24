@@ -1,0 +1,18 @@
+npm create vite@latest
+	- escolha o framework React, com js
+
+npm install - instala as dependencias que estão no package.json
+
+
+
+
+
+
+Insights
+    - Criar o que é essencial de cada componente
+    
+
+lib uuid -> facilita a passagem de identidicador unico
+em algum objeto de lista
+
+      
