@@ -1,0 +1,38 @@
+As listas em Python são uma estrutura de dados que permite armazenar uma coleção 
+de elementos em uma única variável. As listas são mutáveis, o que significa que os 
+elementos de uma lista podem ser modificados após a lista ter sido criada.
+
+As listas em Python são muito versáteis e podem conter elementos de qualquer tipo, 
+incluindo números, strings, listas, entre outros. Para criar uma lista em Python, 
+basta colocar os elementos da lista entre colchetes e separá-los por vírgulas. 
+Outra forma é utilizando a função embutida list().
+
+
+
+>>> minha_lista = [3, "abacate", 9.7, [4, 5, 6]]
+>>> minha_lista[3]
+[4, 5, 6]
+
+# Utilizando o builtin list() para trabalhar com lista:
+>>> minha_lista = list("abc")
+>>> minha_lista
+['a', 'b', 'c']
+
+
+
+Podemos ver no código acima que utilizamos os dois modos para lidar com listas.
+ A diferença é que a função list() leva um iterável (um objeto em que pode ser feito 
+ um loop) como argumento e popula a lista resultante com cada um dos valores do iterável. 
+ No exemplo acima, "abc" é uma string, que é iterável, e retorna um caractere por vez quando 
+ é iterada sobre. Caso eu tente passar um valor numérico para minha função list(), ocorrerá 
+ um erro dizendo que o valor não é iterável:
+
+
+
+
+Fatiamento de listas
+
+É possível acessar e modificar os elementos de uma lista usando índices ou usando o operador de fatia [:]. 
+Também é possível usar loops for para percorrer os elementos de uma lista e realizar ações com cada um deles.
+
+

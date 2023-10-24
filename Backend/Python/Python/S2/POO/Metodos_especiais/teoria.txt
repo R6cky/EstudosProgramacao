@@ -1,0 +1,37 @@
+Métodos mágicos em Python são métodos especiais com um nome prefixado e 
+sufixado por duplo sublinhado (como __init__ e __len__). 
+
+Eles são chamados métodos mágicos porque são usados para 
+implementar operações de alto nível em Python, chamados de 
+forma diferente da forma usual de chamar métodos.
+
+
+__len__
+
+É chamado quando a função len() é aplicada a um objeto. Ele é usado para retornar o tamanho do objeto:
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+
+john = Person('John', 17)
+print(len(john))
+
+Chamamos a função len e estourou um erro, isso se dá pelo fato de que o dunder method __len__ não 
+vem declarado por padrão em nossas classes, então temos que criá-lo do 0:
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.minha_lista = list()
+
+    def __len__(self):
+        return len(self.minha_lista)
+
+john = Person('John')
+print(len(john))
+# 0
+
+
+

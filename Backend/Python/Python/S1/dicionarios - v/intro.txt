@@ -1,0 +1,14 @@
+dicionários em Python são uma estrutura de dados que permite armazenar pares 
+de valores-chave (também conhecidos como itens) 
+
+
+Sintaxe
+
+Para criar um dicionário em Python, basta colocar os itens do dicionário entre chaves ({ }) 
+e separá-los por vírgulas. As chaves e os valores são separados por dois pontos. 
+As chaves servem para indexar (posicionar) determinado elemento no dicionário, devem 
+ser únicas e só podem ser de tipos imutáveis. Geralmente em desenvolvimento web 
+utilizaremos o tipo string para nossas chaves:
+
+* São bem parecidos com objetos no JS. 
+

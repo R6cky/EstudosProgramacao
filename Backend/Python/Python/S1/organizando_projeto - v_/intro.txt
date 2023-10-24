@@ -1,0 +1,3 @@
+ é uma excelente ideia dividir nossa aplicação em arquivos diferentes. 
+No Python precisamos entender o conceito de módulos, pacotes e imports 
+para aplicar essa estratégia.

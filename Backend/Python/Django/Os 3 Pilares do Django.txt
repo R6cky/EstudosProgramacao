@@ -1,0 +1,190 @@
+MODELS, VIEWS , SERIALIZERS
+
+
+MODELS
+
+São as classes que definem o esquema de seus dados em Django. Os modelos representam tabelas em sua base de dados sendo usados para definir as colunas (ou campos) e seus tipos.
+
+
+
+
+VIEWS
+
+São as classes ou funções que controlam o que acontece quando um usuário envia uma solicitação HTTP para sua API. As views são responsáveis por realizar operações de leitura, escrita e atualização de dados, além de controlar a autenticação e autorização.
+
+
+
+
+SERIALIZERS
+
+
+Tratam os dados até gerar uma saída para o cliente. 
+Oferecem recursos para validaçãode dados. 
+
+
+
+# accounts/serializers.py
+from rest_framework import serializers
+
+class AccountSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    email = serializers.EmailField()
+    age = serializers.IntegerField()
+    sex = serializers.CharField()
+
+
+
+Perceba que temos uma classe chamada AccountSerializer que herda funcionalidades da classe Serializer e 
+possui os mesmos campos da nossa model Account.
+
+
+Validação com Serializer
+
+
+
+
+python manage.py shell
+
+
+
+# shell do Django
+from accounts.serializers import AccountSerializer
+from accounts.models import Account
+
+# Dicionário com dados inválidos:
+# sem chave "name", "email" sem @ e "age" sendo True
+account_dict = {
+  "email": "angela.com",
+  "age": True,
+  "sex": "feminino"
+}
+
+# Instanciamos um objeto da classe Serializer, passando kwargs data
+serializer = AccountSerializer(data=account_dict)
+
+# Chamamos o método is_valid para realizar a validação dos dados
+serializer.is_valid()
+# False
+
+# Como retornou False, chamamos o atributo errors para verificar
+# a cadeia de validações que falharam
+serializer.errors
+# {
+#   "name": [ErrorDetail(string="This field is required.", code="required")],
+#   "email": [ErrorDetail(string="Enter a valid email address.", code="invalid")],
+#   "age": [ErrorDetail(string="A valid integer is required.", code="invalid")],
+# }
+
+# Ao tentarmos acessar o atributo validated_data, temos um dict vazio
+serializer.validated_data
+# {}
+
+
+
+
+O seguinte fluxo foi utilizado na validação de dados de entrada:
+
+    Instanciar um objeto da classe Serializer atribuindo a data o dicionário a ser validado;
+    Executar a partir do objeto o método is_valid(), que retorna um booleano indicando se os dados são válidos ou não segundo as regras definidas em AccountSerializer;
+    Dados invalidados, acessamos os erros correspondentes do dado de entrada com o atributo errors;
+    Como a validação falhou, nosso atributo validated_data está vazio;
+
+
+
+
+Agora vamos utilizar um exemplo de dados no formato adequado:
+
+
+
+
+# shell do Django
+from accounts.serializers import AccountSerializer
+from accounts.models import Account
+
+# Dicionário com dados válidos, porém com uma chave extra:
+account_dict = {
+  "name": "Angela",
+  "email": "angela@gmail.com",
+  "age": 22,
+  "sex": "feminino",
+  "extra_key": "extra_value"
+}
+
+serializer = AccountSerializer(data=account_dict)
+serializer.is_valid()
+# True
+
+# Ao tentarmos acessar o atributo validated_data, temos os dados validados
+# Um OrderedDict pode ser tratado como um dict convencional
+serializer.validated_data
+# OrderedDict([('name', 'Angela'),
+#              ('email', 'angela@gmail.com'),
+#              ('age', 22),
+#              ('sex', 'feminino')])
+
+# Também podemos acessar o atributo data para uma versão direta em dict
+serializer.data
+# {'name': 'Angela', 'email': 'angela@gmail.com', 'age': 22, 'sex': 'feminino'}
+
+# Persistindo os dados validados no banco
+# As duas alternativas dão no mesmo
+# Forma 1
+Account.objects.create(**serializer.validated_data)
+# <Account: Account object (1)>
+
+# Forma 2
+# Account.objects.create(**serializer.data)
+# <Account: Account object (1)>
+
+
+
+
+Perceba que o fluxo se manteve praticamente o mesmo. O serializer cuidou da validação e 
+ignorou as chaves extras passadas no dado inicial. Tanto um OrderedDict quanto um dict podem 
+ser retornados via Response.
+
+
+
+
+
+
+Recuperando dados via Serializer
+
+
+
+
+Agora que já compreendemos como validar dados de entrada para registrá-los no banco corretamente,
+vamos aprender o processo inverso. Capturar um dado do banco em formato de objeto e serializa-lo 
+para um formato dicionário. Não precisamos fazer nenhuma alteração em nosso Serializer, o que mudará 
+é a forma de uso:
+
+
+
+
+# shell do Django
+from accounts.serializers import AccountSerializer
+from accounts.models import Account
+
+# Capturamos um objeto inserido
+account_obj = Account.objects.get(id=1)
+account_obj
+# <Account: Account object (1)>
+
+# Perceba que não usamos o kwarg 'data='
+serializer = AccountSerializer(account_obj)
+serializer.data
+# {'name': 'Angela', 'email': 'angela@gmail.com', 'age': 22, 'sex': 'feminino'}
+
+
+
+O processo de desserializar um objeto é muito mais simples, pois partimos do princípio que o dado 
+já foi validado na inserção do registro, não sendo necessário chamar is_valid para a leitura desse 
+registro. Ao acessar o atributo data temos a versão em dict do nosso objeto de Account, podendo ser 
+retornado normalmente em uma Response.
+
+
+
+
+
+
+

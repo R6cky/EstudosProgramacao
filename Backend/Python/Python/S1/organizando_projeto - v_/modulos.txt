@@ -1,0 +1,25 @@
+Módulos
+
+Um módulo em Python é um arquivo de código que contém definições de funções, 
+classes e outros objetos. Os módulos permitem dividir o código em partes mais
+manejáveis e reutilizá-las em diferentes programas.
+
+Para criar um módulo, basta criar um arquivo com extensão .py. A diferença de módulo e 
+um arquivo .py comum é que não rodamos o módulo diretamente, nós importamos o código dele 
+para utilizar em outro arquivo ou até mesmo outro módulo.
+
+
+Como estamos utilizando as funções dos arquivos soma.py e subtracao.py 
+no arquivo main.py, podemos dizer que soma.py e subtracao.py são módulos,
+ e o main.py é o arquivo principal para rodar esse sistema, utilizando 
+ python main.py.
+
+ 
+ IMPORTANTE 
+
+ Ao criar um sistema, ele sempre deverá conter um arquivo principal, ou seja, 
+ um arquivo que será executado e que servirá como porta de entrada para os outros 
+ módulos e pacotes do seu projeto.
+
+
+ 

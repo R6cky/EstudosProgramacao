@@ -1,0 +1,14 @@
+Levantamento de Exceções
+
+Você pode levantar exceções em Python usando a palavra-chave raise. 
+Por exemplo, para levantar uma exceção de tipo ValueError com a mensagem 
+"O valor é inválido!", você pode usar o seguinte código:
+
+
+>>> raise ValueError("O valor é inválido!")
+
+
+Ao levantar uma exceção, o fluxo de execução da sua aplicação é interrompido e a exceção é
+ propagada até o primeiro bloco de código try/except que possa tratá-la. 
+Se nenhum bloco de código try/except for encontrado, a exceção será mostrada ao usuário como um erro.
+

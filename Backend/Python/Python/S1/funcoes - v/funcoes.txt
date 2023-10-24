@@ -1,0 +1,29 @@
+def nome_da_funcao():
+    messag = print("hello")
+    return messag
+
+
+
+def soma(param1, param2):
+    return f"A soma de {param1} com {param2} = {param1 + param2}"
+
+
+result = soma(12, 30)
+
+print(result)
+
+
+
+as funções também podem ter um conjunto opcional de argumentos padrão, valores que serão usados se o parâmetro não for passado 
+explicitamente quando a função é chamada. Por exemplo:
+
+def soma(param1, param2=50):
+    return f"A soma de {param1} com {param2} = {param1 + param2}"
+
+
+result2 = soma(40)
+
+print(result2)
+
+
+

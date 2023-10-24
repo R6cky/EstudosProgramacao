@@ -1,0 +1,147 @@
+** crio diretorio - mkdir django_project
+** entro no diretorio - cd django_project
+** instalo amb virtual no diretorio do projeto - python -m venv venv
+** ativo amb virtual - source venv/bin/activate
+** instalo o django - pip install django
+** crio projeto django na pasta local - django-admin startproject bandkamp . 
+
+
+** iniciar um app - python manage.py startapp musicians
+"criar um contexto dentro do projeto, o que é chamado pelo Django de "app"."
+
+
+
+** importar  - from django.db import models no models.py do app
+e criar uma classe herdando o models.Model <--- essa classe vai criar uma tabela no banco.
+
+** exemplo de estrutura da model para criação de tabela
+
+# musicians/models.py
+from django.db import models
+	
+class Musician(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    instrument = models.CharField(max_length=30)
+
+
+
+** Apontar "app" no settings - INSTALLED_APPS = ["musicians"]
+
+
+** persistencia no banco com makemigration e migrate 
+	- python manage.py makemigrations
+	- python manage.py migrate
+
+
+
+
+
+
+****** Criando dados e persistindo no banco pelo shell do python
+[python manage.py shell] <- acessar shell do django 
+
+
+# shell do Django
+>>> from musicians.models import Musician -- importando model
+
+FORMA COMPOSTA
+
+** Criando dados 
+>>> musician = Musician(
+  first_name='John',
+  last_name='Lennon',
+  instrument='vocal'
+)
+
+** salvando no banco
+>>> musician.save()
+
+>>> musician - verificando dados existente na instancia
+# <Musician: Musician object (1)>
+
+
+
+
+FORMA DIRETA 
+
+
+# shell do Django
+>>> from musicians.models import Musician
+
+>>> musician = Musician.objects.create(
+      first_name='John',
+      last_name='Frusciante',
+      instrument='guitar'
+)
+>>> musician
+# <Musician: Musician object (2)>
+
+
+
+Capturando objetos
+
+
+# shell do Django
+>>> from musicians.models import Musician
+
+>>> all_musicians = Musician.objects.all()
+>>> all_musicians (QuerySet)
+
+# <QuerySet [<Musician: Musician object (1)>, <Musician: Musician object (2)>] 
+
+>>> all_musicians[0]
+# <Musician: Musician object (1)>
+
+>>> all_musicians[0].last_name
+# 'Lennon'
+
+
+
+*** QuerySet é uma coleção de dados do nosso banco, e é especialmente útil, 
+pois conseguimos acessar cada um dos items de um QuerySet para retorno
+
+
+
+
+****Recuperando objetos específicos com filtros
+
+
+# shell do Django
+>>> from musicians.models import Musician
+
+
+# 1.
+>>> musician_filter = Musician.objects.filter(first_name='John') <<<-------------------
+>>> musician_filter
+# <QuerySet [<Musician: Musician object (1)>, <Musician: Musician object (2)>]
+
+
+
+# 2.
+>>> musician_exclude = Musician.objects.exclude(last_name='Lennon')
+>>> musician_exclude
+
+# <QuerySet [<Musician: Musician object (2)>]
+
+
+>>> musician_exclude.first()
+# <Musician: Musician object (2)>
+
+
+
+
+****Capturando e modificando registros
+
+$$ Para modificar um registro do banco, primeiro precisamos capturá-lo via ORM do Django.
+
+$$ musician = Musician.objects.get(pk=1)
+
+$$ musician.instrument
+
+$$ musician.instrument = 'guitar'
+
+$$ musician.save()
+
+
+

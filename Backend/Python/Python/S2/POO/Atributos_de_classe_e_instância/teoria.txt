@@ -1,0 +1,41 @@
+Atributos de Classe
+
+Atributos de classe são atributos que pertencem à classe em si e são compartilhados por todas as instâncias da classe.
+São definidos fora do método __init__ e podem ser acessados tanto a partir de classe quanto das instâncias.
+
+
+Atributos de Instância
+
+Atributos de instância, por outro lado, são atributos que pertencem a uma instância
+específica da classe sendo definidos no método __init__. Eles são acessados usando o nome 
+da instância seguido pelo ponto (.) e o nome do atributo.
+
+
+
+
+class Dog:
+    species = "Mammal"  # Atributo de classe
+
+    def __init__(self, name, breed):
+        self.name = name # Atributo de instância
+        self.breed = breed # Atributo de instância
+    
+    def bark(self):
+        print("Woof!")
+
+dog1 = Dog("Fido", "Labrador")
+dog2 = Dog("Buddy", "Poodle")
+
+# Acessando atributo de classe via classe
+print(Dog.species)  # "Mammal"
+
+# Acessando atributo de classe via instancia
+print(dog1.species)  # "Mammal"
+print(dog2.species)  # "Mammal"
+
+# Acessando atributo de instancia via instancia
+print(dog1.name)  # "Fido"
+print(dog2.name)  # "Buddy"
+
+# Tentando acessar atributo de instancia via classe
+print(Dog.name)  # AttributeError: type object 'Dog' has no attribute 'name'

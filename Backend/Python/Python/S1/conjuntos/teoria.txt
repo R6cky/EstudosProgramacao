@@ -1,0 +1,76 @@
+Em Python, um conjunto (ou set em inglês) é uma coleção não ordenada e 
+sem elementos duplicados de valores imutáveis (isto é, que não podem ser alterados).
+Os conjuntos são usados ​​para armazenar vários valores e permitir operações de conjunto, 
+como união, interseção e diferença.
+
+* se no grupo de elementos tiver algum valor duplicado, ele remove o duplicado.
+
+MÉTODOS
+
+    set.add(elemento): Adiciona um elemento ao conjunto.
+    
+    set.remove(elemento): Remove um elemento do conjunto. Lança um erro se o elemento não estiver presente no conjunto.
+    
+    set.discard(elemento): Remove um elemento do conjunto, se ele estiver presente. Não lança um erro se o elemento não estiver presente.
+    
+    set.clear(): Remove todos os elementos do conjunto.
+    
+    set.copy(): Cria uma cópia do conjunto.
+    
+    set.update(conjunto): Adiciona todos os elementos de outro conjunto ao conjunto atual.
+    
+    set.intersection(conjunto): Retorna um novo conjunto com os elementos que estão presentes em ambos os conjuntos.
+    
+    set.difference(conjunto): Retorna um novo conjunto com os elementos que estão presentes no primeiro conjunto, mas não estão presentes no segundo conjunto.
+    
+    set.union(conjunto): Retorna um novo conjunto com os elementos presentes em ambos os conjuntos.
+    
+    set.isdisjoint(conjunto): Retorna True se os conjuntos não tiverem elementos em comum, caso contrário, retorna False.
+
+
+
+
+        # Criando um conjunto com elementos únicos
+    >>> meu_conjunto = set([1, 2, 3, 4, 5])
+
+    # Adicionando um elemento ao conjunto
+    >>> meu_conjunto.add(6)
+    >>> meu_conjunto  # Imprime {1, 2, 3, 4, 5, 6}
+
+    # Removendo um elemento do conjunto
+    >>> meu_conjunto.remove(3)
+    >>> meu_conjunto # Imprime {1, 2, 4, 5, 6}
+
+    # Removendo um elemento que não está presente no conjunto (lança um erro)
+    >>> meu_conjunto.remove(7)  # Lança um erro
+
+    # Removendo um elemento que não está presente no conjunto (sem erro)
+    >>> meu_conjunto.discard(7)  # Não lança um erro
+
+    # Criando uma cópia do conjunto
+    >>> outro_conjunto = meu_conjunto.copy()
+    >>> outro_conjunto  # Imprime {1, 2, 4, 5, 6}
+
+    # Adicionando todos os elementos de outro conjunto ao conjunto atual
+    >>> meu_conjunto.update(set([7, 8, 9]))
+    >>> meu_conjunto  # Imprime {1, 2, 4, 5, 6, 7, 8, 9}
+
+
+    >>> conjunto_a = set([1, 2, 3])
+    >>> conjunto_b = set([2, 3, 4])
+
+    # Cria um novo conjunto com os elementos presentes em ambos os conjuntos
+    >>> intersecao = conjunto_a.intersection(conjunto_b)
+    >>> intersecao  # Imprime {2, 3}
+
+    # Cria um novo conjunto com os elementos presentes em conjunto_a, mas não presentes em conjunto_b
+    >>> diferenca = conjunto_a.difference(conjunto_b)
+    >>> diferenca  # Imprime {1}
+
+    # Cria um novo conjunto com os elementos presentes em ambos os conjuntos
+    >>> uniao = conjunto_a.union(conjunto_b)
+    >>> uniao  # Imprime {1, 2, 3, 4}
+
+    # Verifica se os conjuntos não têm elementos em comum
+    >>> sao_disjuntos = conjunto_a.isdisjoint(conjunto_b)
+    >>> sao_disjuntos  # Imprime False

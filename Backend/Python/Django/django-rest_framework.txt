@@ -1,0 +1,138 @@
+ é um framework de desenvolvimento de APIs para o Django. Ele fornece uma série de ferramentas e 
+funcionalidades prontas para uso para criar APIs RESTful de maneira fácil e rápida.
+
+
+$$ instalação -  pip install djangorestframework
+
+$$ Adicione 'rest_framework' à sua configuração INSTALLED_APPS
+
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+]
+
+
+$$ a classe APIView é a base para todas as views de API. Ela fornece uma série de métodos e 
+atributos comuns que podem ser sobrescritos ou usados para criar views de API personalizadas.
+
+
+*** Para usar a APIView
+*** definiremos os nomes dos métodos de instância com os nomes apropriados para cada método HTTP, como get() e post(), por exemplo.
+***Além disso, vários atributos podem ser definidos no nível de classe para alterar diversos aspectos em nossa API.
+
+
+
+
+
+
+**** Criando view
+
+
+# musicians/views.py
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class MusicianView(APIView):
+    def post(self, request):
+        return Response({'msg': 'Rota POST de Musician!'})
+
+
+
+
+* Para exibir essa view em uma URL específica, devemos criar uma configuração URL e associá-la a nossa classe.
+*Crie um arquivo chamado urls.py no mesmo diretório que views.py e faça sua configuração URL.
+
+
+# musicians/urls.py
+from django.urls import path
+from .views import MusicianView
+
+urlpatterns = [
+    path('musicians/', MusicianView.as_view())
+]
+
+
+
+
+
+
+**** Devemos fazer o roteamento global das configurações URL na raiz também. Vá até bandkamp/urls.py
+
+
+# bandkamp/urls.py
+from django.contrib import admin
+from django.urls import path, include # Novo
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('musicians.urls')) # Novo
+]
+
+
+
+
+**** python manage.py runserver -<<<<<---- RODAR SERVIDOR
+
+
+
+
+
+Incorporando a lógica
+
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from musicians.models import Musician
+
+
+class MusicianView(APIView):
+    def post(self, request):
+        # request.data é um dict
+        musician_data = request.data
+
+        musician = Musician.objects.create(
+            first_name=musician_data["first_name"],
+            last_name=musician_data["last_name"],
+            instrument=musician_data["instrument"],
+        )
+
+        # Utilizando conceito de packing/unpacking
+        # poderiamos também ter feito dessa forma
+        # musician = Musician.objects.create(**musician_data)
+
+        return Response(musician)
+
+
+
+
+
+
+
+
+
+GET 
+
+
+# musicians/views.py
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.forms.models import model_to_dict
+
+from .models import Musician
+
+class MusicianView(APIView):
+    def get(self, request):
+          musicians = Musician.objects.all()
+
+          musicians_dict = []
+
+          for musician in musicians:
+              m = model_to_dict(musician)
+              musicians_dict.append(m)
+
+          return Response(musicians_dict)
+
+
+
+
+	

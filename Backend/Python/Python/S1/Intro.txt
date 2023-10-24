@@ -1,0 +1,7 @@
+
+#Python tudo é uma classe
+
+#Tipos primitivos
+
+#inteiro
+

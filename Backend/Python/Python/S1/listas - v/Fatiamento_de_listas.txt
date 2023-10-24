@@ -1,0 +1,37 @@
+É possível acessar e modificar os elementos de uma lista usando índices ou usando o operador 
+de fatia [:]. Também é possível usar loops for para percorrer os elementos de uma 
+lista e realizar ações com cada um deles.
+
+
+>>> minha_lista = ['1', 'teste', '3']
+
+# Acessando o primeiro elemento:
+>>> minha_lista[0]
+'1'
+
+# Para acessarmos o último elemento, temos duas maneiras:
+>>> minha_lista[2]
+'3'
+>>> minha_lista[-1]
+'3'
+
+# Acessando um intervalo do começo da lista até o indice 2
+# Lembrando que o limite (nesse caso indice 2) não é considerado no fatiamento:
+>>> minha_lista[0:2]
+['1', 'teste']
+
+# Acessando o intervalo entre o início e o indice 3 com o passo de 2:
+>>> minha_lista[0:3:2]
+['1', '3']
+
+# Acessando toda lista com o passo de 2:
+>>> minha_lista[::2]
+['1', '3']
+
+
+>>> carrinho_de_compras = ["Banana", "Pera", "Tomate"]
+>>> for item in carrinho_de_compras:
+        print(item)
+'Banana'
+'Pera'
+'Tomate'

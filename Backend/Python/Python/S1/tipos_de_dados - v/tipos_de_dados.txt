@@ -1,0 +1,68 @@
+#float
+
+my_float = 5.2
+print(my_float)
+
+---------------------------------------------------------------------
+
+#Integer
+my_integer = 10
+print(my_integer)
+
+---------------------------------------------------------------------
+
+#boolean
+
+my_boolean_true = True
+my_boolean_false = False
+
+print(type(my_boolean_false ))
+print(my_boolean_false )
+
+
+---------------------------------------------------------------------
+
+#Constantes 
+
+MINHA_CONSTANTE = 'olá M5'
+
+
+
+---------------------------------------------------------------------
+#Strings 
+
+texto = """
+        Helo! My name is cleiton, i from brazilian
+        and i study software developer every day.
+        my skills are reactJs, Html and css.
+"""
+print(texto)
+
+
+my_string = 'hello'
+print(my_string)
+
+---------------------------------------------------------------------
+
+
+Os tipos de dados primitivos em python são:
+
+1. String (str)
+2. Inteiro (int)
+3. Decimal (float)
+4. Booleano (bool)
+5. Vazio (NoneType)
+
+
+
+    Os nomes das variáveis sempre devem ser iniciados com uma letra ou underline, mas depois podem conter outros tipos de caracteres como números;
+    Nomes de variáveis em python não podem conter símbolos;
+    Os nomes das variáveis são sensíveis a letras maiúsculas;
+    É boa prática não utilizar palavras reservadas do Python para nomear suas variáveis;
+
+
+
+Podemos declarar constantes em Python utilizando uma convenção de nome utilizando somente letras maiúsculas
+
+
+MINHA_CONSTANTE = 'olá M5'

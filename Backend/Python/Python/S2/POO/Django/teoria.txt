@@ -1,0 +1,23 @@
+Estrutura de um Projeto Django
+
+O Django fornece aos seus programadores e programadoras uma construção de sites rápida
+ e com o uso de pouco código. De modo geral, um projeto desenvolvido com o Django 
+ costuma ser dividido em pequenas aplicações compostas por pacotes Python que resolvem
+  porções específicas de requisições relativas àquela aplicação. Sua estrutura básica
+   tem como inspiração o modelo clássico MVC (Model, View, Controller).
+
+O Django clássico segue o modelo model-view-template (MVT) de arquitetura, 
+no qual o modelo representa os dados, o template define a interface de usuário e
+ o view lida com a lógica de negócios. Ele também possui uma série de recursos integrados,
+  como gerenciamento de formulários, autenticação de usuário e suporte ao banco de dados.
+
+Como nosso foco é em desenvolvimento de API, não precisaremos nos preocupar com a parte 
+de templates, que envolvem renderização de HTML pelo lado do servidor.
+
+Iniciando um projeto em Django
+
+mkdir estrutura_django
+cd estrutura_django
+python -m venv venv
+source venv/bin/activate
+pip install django

@@ -1,0 +1,25 @@
+Introdução ao Django
+
+mkdir estrutura_django
+cd estrutura_django
+python -m venv venv
+source venv/bin/activate
+pip install djangorestframework
+
+django-admin startproject hello_django .
+
+
+    manage.py: Este arquivo é um utilitário do Django que permite interagir com o framework de forma descomplicada por linha de comando. Ele possibilita que o Django realize tarefas complexas internamente, mas transparentes ao usuário final, como levantar um servidor em ambiente de desenvolvimento para testar sua aplicação.
+
+    settings.py: Guarda as configurações globais do projeto, como informações do banco de dados, organização de diferentes contextos dentro da aplicação, dentre outras informações necessárias para o correto funcionamento do projeto.
+
+    urls.py: determina os padrões de URL que existirão no projeto, fazendo a conexão entre os endereços de cada aplicativo/contexto.
+
+    wsgi.py: Arquivo de configuração de interface entre servidores e aplicações web. Utilizado tanto na execução do servidor de desenvolvimento do próprio Django quanto no uso de servidores web para deploy em produção.
+
+    asgi.py: Da mesma forma que o arquivo anterior, é utilizado na configuração de interface entre aplicações e servidores web. A diferença é que ele serve para trabalhar com servidores assíncronos. Ao contrário do wsgi.py, este arquivo não é utilizado na execução do servidor de desenvolvimento do Django, mas pode ser utilizado com qualquer servidor web assíncrono, tanto para deploys em desenvolvimento quanto em produção.
+
+    __init__.py: Este é um arquivo vazio com o único propósito de informar ao Python que esse diretório deve ser considerado um pacote Python.
+
+
+

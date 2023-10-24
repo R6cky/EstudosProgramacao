@@ -1,0 +1,12 @@
+Estruturas condicionais
+
+Não se usa () cmo em JS
+
+Não se usa {} como JS
+
+O escopo do if é definido pelas identações. 
+
+else if => elif
+
+else => else 
+

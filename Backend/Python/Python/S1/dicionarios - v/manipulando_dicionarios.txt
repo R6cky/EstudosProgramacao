@@ -1,0 +1,80 @@
+É possível acessar os valores de um dicionário usando suas chaves correspondentes. 
+Também é possível adicionar, atualizar e remover itens de um dicionário usando
+os operadores de atribuição e de exclusão:
+
+
+
+# Criando dicionários
+dic = {"name": "cleiton", "age": 29, "active": True}
+print(dic)
+
+# atualizando valor
+dic["name"] = "maria"
+print(dic)
+
+# adicionando item
+dic["color"] = "black"
+print(dic)
+
+# removendo item
+del dic["active"]
+print(dic)
+
+# acessando valor
+print(dic["name"])
+
+# remove item e retorna valor removido
+print(dic.pop("color"))
+
+print(dic)
+print("-----------------------------------------")
+print(dic)
+print("-----------------------------------------")
+
+#Atualizando multiplos valores
+dic.update({"name": "tukin", "age": 22})
+print(dic)
+
+
+
+Método get
+
+O método dict.get(key[, default]) é um método de dicionário em Python que permite recuperar o valor de um item 
+do dicionário usando sua chave. Se o item com a chave especificada existir no dicionário, o método retorna o valor do item. 
+Se o item não existir, o método retorna o valor padrão especificado (ou None, se o valor padrão não for especificado):
+
+
+print(
+    dic.get("colorr", "chave inexistente")
+)  # retorna None ou a frase setada no 2 argumento(caso ser passada)
+# dic["colorr"]  # retorna um erro
+
+
+
+
+
+# Looping
+
+# acessando chaves
+for key in dic:
+    print("chave: " + key)
+
+# acessando chaves 2 (com o método keys())
+for key in dic.keys():
+    print("chave2: " + key)
+
+
+# Acessando valores das chaves
+for key in dic:
+    print(f"valor da chave {key} : " + str(dic[key]))
+
+# Acessando valores das chaves 2
+for values in dic.values():
+    print("valor das chaves pelo método: " + str(values))
+
+for key, value in dic.items():
+    print(f"chave: {key} | valor: {str(value)} ")
+
+
+
+

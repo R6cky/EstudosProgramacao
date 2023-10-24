@@ -1,0 +1,45 @@
+Field choices é um recurso disponível no Django para fornecer uma lista de opções pré-definidas 
+para um determinado campo em uma model. É útil quando você deseja restringir as opções 
+disponíveis para um determinado campo a um conjunto de valores específico.
+
+
+
+from django.db import models
+
+class CategoryProduct(models.TextChoices):
+    DRINK = "Drink"
+    MEAT = "Meat"
+    CANDY = "Candy"
+    FRUIT = "Fruit"
+    OTHER = "Other"
+
+
+
+class Product(models.Model):
+    name = models.CharField(max_length=20)
+    category = models.CharField(
+        max_length=30,
+        choices=CategoryProduct.choices,
+        default=CategoryProduct.OTHER
+    )
+    price = models.DecimalField()
+
+
+
+
+Para continuar com a teoria, gere e execute as migrations.
+
+
+
+
+
+
+# shell do Django
+from products.models import Product
+p1 = Product(name='suco de laranja', category='Drink', price=5.99)
+p1.save()
+
+p1.category
+# 'Drink'
+
+

@@ -1,0 +1,14 @@
+O loop for é usado para iterar sobre uma sequência de elementos, 
+como uma lista ou uma string:
+
+# imprime cada elemento da lista
+for elemento in [1, 2, 3]:
+    print(elemento)
+
+# imprime cada caractere da string
+for caractere in "Olá, mundo!":
+    print(caractere)
+
+# imprimindo os números de 1 a 5
+for i in range(1, 6):
+    print(i)

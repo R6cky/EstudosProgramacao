@@ -1,0 +1,195 @@
+Quando desenvolvemos relações entre as nossas models é sempre necessário definir como 
+iremos tratar as deleções dos relacionamentos. Então para definir a forma 
+de deleção usamos do argumento on_delete, podendo receber configurações diferentes 
+conforme a necessidade.
+
+
+****
+A cada alteração no argumento on_delete, você terá que gerar novas migrações e executá-las.
+
+
+
+CASCADE
+
+Ao atribuir o on_delete como CASCADE, ao deletar a nossa model todos os seus 
+relacionamentos que dependem da model para existir serão excluídos por consequência.
+
+
+# my_models/models.py
+class Pai(models.Model):
+   name = models.CharField(max_length=50)
+
+class Filho(models.Model):
+   name = models.CharField(max_length=50)
+   pai = models.ForeignKey('my_models.Pai', on_delete=models.CASCADE, related_name="filhos")
+
+
+
+
+PROTECT
+
+
+Temos também o atributo PROTECT, é muito usado quando não queremos que uma model que possua 
+relacionamentos seja excluída, caso tente fazer a deleção de uma model com que possua um 
+desses relacionamentos será levantado o erro ProtectedError.
+
+
+
+
+Após modificar a model, gere novas migrações e as execute.
+
+
+# my_models/models.py⁠
+class Pai(models.Model):
+   name = models.CharField(max_length=50)
+
+class Filho(models.Model):
+   name = models.CharField(max_length=50)
+   pai = models.ForeignKey('my_models.Pai', on_delete=models.PROTECT, related_name="filhos")
+
+
+
+
+
+# shell do Django
+from my_models.models import Pai, Filho
+
+pai = Pai.objects.create(name="Roger")
+filho = Filho.objects.create(name="Sandra", pai=pai)
+
+pai.delete()
+# Será levantado o erro ProtectedError
+
+filho.delete()
+# (1, {'artist.Filho': 1})
+# Somente deletando o filho antes, conseguimos deletar o pai <<<<===========================
+pai.delete()
+# (1, {'artist.Pai': 1})
+
+
+
+
+
+
+
+RESTRICT
+
+
+Por meio do RESTRICT vamos impedir que uma model que possua relacionamento com outra com o 
+atributo RESTRICT mesmo que indiretamente, sendo necessário fazer a deleção em forma sequencial 
+do nível mais interno do relacionamento ao nível mais externo.
+
+
+
+
+# my_models/models.py
+class Pai(models.Model):
+    name = models.CharField(max_length=50)
+
+
+class Filho(models.Model):
+    name = models.CharField(max_length=50)
+    pai = models.ForeignKey(
+        "my_models.Pai", on_delete=models.RESTRICT, related_name="filhos"
+    )
+
+
+class Neto(models.Model):
+    name = models.CharField(max_length=50)
+    filho = models.ForeignKey(
+        "my_models.Filho", on_delete=models.RESTRICT, related_name="netos"
+    )
+
+
+
+
+Ao tentar deletar o pai (pai.delete()), como os filhos e netos associados a ele poderiam existir? 
+Esse comportamento é exatamente o que o RESTRICT protege. Para fazer a deleção precisamos deletar 
+sequencialmente os registros que se dependem, pois uma model depende estritamente da outra:
+
+
+
+
+from my_models.models import Pai, Filho, Neto
+
+pai = Pai.objects.create(name="Roger")
+filho = Filho.objects.create(name="Sandra", pai=pai)
+neto = Neto.objects.create(name="Ronaldo", filho=filho)
+
+pai.delete()
+# RestrictedError
+
+filho.delete()
+# RestrictedError
+
+neto.delete()
+# (1, {'artist.Neto': 1})
+
+filho.delete()
+# (1, {'artist.Filho': 1})
+
+pai.delete()
+# (1, {'artist.Pai': 1})
+
+
+
+
+
+SET NULL
+
+
+Com o atributo SET_NULL ao deletar um relacionamento o campo de relacionamento será preenchido 
+com o valor de null (sintaxe de SQL), para que essa configuração funcione também é necessário 
+adicionar o argumento null=True para que o nosso campo possa aceitar valores nulos:
+
+
+
+Após modificar a model, gere novas migrações e as execute.
+
+
+# my_models/models.py
+class Pai(models.Model):
+    name = models.CharField(max_length=50)
+
+
+class Filho(models.Model):
+    name = models.CharField(max_length=50)
+    pai = models.ForeignKey(
+        "my_models.Pai", on_delete=models.SET_NULL, related_name="filhos", null=True
+    )
+
+
+
+# shell do Django
+from my_models.models import Pai, Filho
+
+pai = Pai.objects.create(name="Roger")
+filho = Filho.objects.create(name="Sandra", pai=pai)
+
+filho.pai
+# <Pai: Pai object (1)>
+
+pai.delete()
+# (1, {'artist.Pai': 1})
+
+filho.pai
+# Como pai foi deletado, seu id sumiu
+# <Pai: Pai object (None)>
+
+# Podemo 'atualizar' filho com os dados mais recentes
+filho = Filho.objects.get(id=1)
+print(filho.pai)
+# None (ou vazio)
+
+
+
+
+
+Conclusão
+
+Ao associar registros via relacionamentos, é de extrema importância termos claro a forma com que devem 
+se comportar caso outros registros deletados se comportem. Consulte a documentação oficial para ver outras 
+possibilidades.
+
+
+

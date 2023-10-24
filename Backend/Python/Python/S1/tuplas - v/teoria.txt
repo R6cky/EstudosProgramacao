@@ -1,0 +1,48 @@
+Uma tupla é uma sequência de valores imutável.
+são usadas para armazenar vários valores em uma única variável e podem 
+conter valores de qualquer tipo, incluindo números, strings, outras tuplas 
+ou qualquer outro objeto.
+
+As tuplas são úteis quando você precisa armazenar vários valores em uma única variável, 
+mas não deseja ou não pode alterar esses valores.
+
+Elas também são mais rápidas e ocupam menos espaço em memória do que as listas, 
+pois são imutáveis. 
+
+Sintaxe
+
+Para declarar uma tupla, basta abrir e fechar parênteses e adicionar qualquer tipo de dado 
+(números, strings, listas, dicionários e até mesmo outras tuplas). 
+
+>>> minha_tupla = (1, 2, 3, 4, 5)
+
+Você também pode criar uma tupla vazia usando apenas os parênteses
+
+Para acessar os elementos de uma tupla, você pode usar índices. tuple[0]
+
+
+ é importante lembrar de que as tuplas são imutáveis, o que significa que você 
+ não pode adicionar, remover ou alterar os elementos de uma tupla depois que ela é criada. 
+ Se você precisar modificar os elementos de uma tupla, deve convertê-la
+ em uma lista primeiro e depois convertê-la de volta para uma tupla
+
+>>> minha_tupla = ('João', 'José', 'Maria', 'Joana', 'João')
+>>> minha_tupla[0] = 'Pedro'
+
+
+#Convertendo uma tupla p uma lista 
+minha_lista = list(minha_tupla)
+
+
+
+MÉTODOS 
+
+As tuplas possuem apenas dois métodos:
+
+count: Conta o número de ocorrências de determinado valor na tupla.
+
+index: Recebe como parâmetro um elemento a ser procurado na tupla.
+Se encontrado, retorna o primeiro índice de ocorrência do elemento. Se não encontrado, 
+levanta um ValueError.
+
+

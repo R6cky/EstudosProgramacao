@@ -1,0 +1,57 @@
+Copias rasas alocam uma cópia do objeto original em um novo espaço na memória. 
+Portanto, na prática, trata-se de objetos diferentes. Quando queremos apenas 
+passar o valor de um objeto mutável para outro, sem sua referência, seja por 
+atribuição ou como argumento de função, podemos utilizar o método .copy().
+
+
+>>> list_1 = [1, 2, 3]
+# Aqui estamos copiando APENAS o valor de list_1,
+# sem sua referência de memória
+>>> list_2 = lista_1.copy()
+
+>>> list_1
+[1, 2, 3]
+>>> list_2
+[1, 2, 3]
+>>> id(list_1)
+139921912676133
+>>> id(list_2)
+139921912676199
+# Não possuem o mesmo endereço de memória
+>>> list_1 is list_2
+False
+# Possuem mesmo valor
+>>> list_1 == list_2
+True
+
+
+
+----------------------------------------------------------------------
+
+Cópia Profunda
+
+Nas cópias rasas novos objetos eram criados. O mesmo acontece para as cópias profundas.
+Estas, porém, criam referências até mesmo para os elementos mutáveis internos do objeto 
+original, algo que não acontece nas cópias rasas. Vamos ao exemplo para entendermos melhor:
+
+
+>>> list_original = [1, 2, 3, ['a', 'b', 'c'], 4, 5, 6]
+>>> list_copy = list_original.copy()
+
+# Alterando os elementos dentro de list_copy
+>>> list_copy[0] = 10
+>>> list_copy[3][0] = 'Z'
+
+>>> list_copy
+[10, 2, 3, ['Z', 'b', 'c'], 4, 5, 6]
+
+>>> list_original
+[1, 2, 3, ['Z', 'b', 'c'], 4, 5, 6]
+
+
+Observe que somente os elementos imutáveis (inteiros) ganharam uma nova referência,
+ visto que a alteração feita no primeiro elemento da lista copiada não refletiu
+  na lista original. Já a modificação feita na lista ['a', 'b', 'c'] teve reflexo
+   tanto na list_copy quanto em list_original. O que aconteceu acima é que a referência 
+   de ['a', 'b', 'c'] não foi copiada com list_copy. Portanto, copy() gera cópias rasas.
+

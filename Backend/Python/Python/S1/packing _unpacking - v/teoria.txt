@@ -1,0 +1,121 @@
+Empacotamento e Desempacotamento (Packing e Unpacking) são ferramentas do 
+Python utilizadas para facilitar o processamento de variáveis de uma maneira geral.
+
+Packing
+
+Packing é um processo que permite agrupar vários valores em uma única variável
+geralmente um tuple ou um list.  Por exemplo, você pode usar packing para agrupar 
+três números inteiros em uma única variável:
+
+
+>>> a, b, c = 1, 2, 3
+>>> packed = (a, b, c)
+>>> packed  
+(1, 2, 3)
+
+
+
+Unpacking
+
+
+Unpacking é o processo inverso de packing. É quando você desagrupa 
+os valores de uma variável em várias variáveis. Por exemplo, você pode 
+usar o unpacking para desagrupar os valores do tuple packed em três variáveis:
+
+>>> packed = (1, 2, 3)
+>>> a, b, c = packed
+>>> a  
+1
+>>> b
+2
+>>> c
+3
+
+
+
+
+Packing e unpacking são úteis quando você precisa trabalhar com vários valores 
+juntos e deseja evitar criar muitas variáveis separadas. Eles também são úteis para 
+passar vários argumentos para uma função ou retornar vários valores de uma função.
+
+
+
+Packing é um processo que permite agrupar vários valores em uma única variável, 
+geralmente um tuple ou um list. Por exemplo, você pode usar packing para agrupar 
+três números inteiros em uma única variável:
+
+
+>>> a, b, c = 1, 2, 3
+>>> packed = (a, b, c)
+>>> packed  
+(1, 2, 3)
+
+
+
+Unpacking
+
+Unpacking é o processo inverso de packing. É quando você desagrupa os valores de 
+uma variável em várias variáveis. Por exemplo, você pode usar o unpacking para .
+desagrupar os valores do tuple packed em três variáveis:
+
+
+>>> packed = (1, 2, 3)
+>>> a, b, c = packed
+>>> a  
+1
+>>> b
+2
+>>> c
+3
+
+
+
+
+
+
+*args e **kwargs
+
+*args e **kwargs são palavras-chave especiais em Python que permitem que você 
+passe uma quantidade variável de argumentos para uma função.
+
+
+
+*args é usado para passar uma quantidade variável de argumentos
+não-nomeados para uma função. Os argumentos passados para a função 
+são agrupados em uma tupla. Por exemplo:
+
+
+def my_function(*args):
+    for arg in args:
+        print(arg)
+
+my_function(1, 2, 3)  # Output: 1 2 3
+my_function(4, 5, 6, 7, 8)  # Output: 4 5 6 7 8
+
+
+
+
+
+
+**kwargs é usado para passar uma quantidade variável de argumentos nomeados 
+(também chamados de argumentos de palavra-chave ou argumentos com valores-padrão) 
+para uma função. Os argumentos passados para a função são agrupados em um dicionário. 
+Por exemplo:
+
+
+def my_function(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key} = {value}")
+
+my_function(name="Alice", age=25)  # Output: name = Alice age = 25
+my_function(city="New York", country="USA")  # Output: city = New York country = USA
+
+
+
+
+*args e **kwargs são úteis quando você quer criar uma função que aceite uma quantidade 
+variável de argumentos. Eles permitem que você crie funções flexíveis que podem ser usadas
+em várias situações diferentes.
+
+
+

@@ -1,0 +1,116 @@
+ método save
+
+ # shell do Django
+>>> from musicians.models import Musician
+
+>>> musician = Musician(
+  first_name='John',
+  last_name='Lennon',
+  instrument='vocal'
+)
+>>> musician.save()
+
+>>> musician
+# <Musician: Musician object (1)>
+
+
+
+
+Forma direta
+
+
+# shell do Django
+>>> from musicians.models import Musician
+
+>>> musician = Musician.objects.create(
+      first_name='John',
+      last_name='Frusciante',
+      instrument='guitar'
+)
+>>> musician
+# <Musician: Musician object (2)>
+
+
+
+QuerySet - coleção de dados do nosso banco, 
+
+Capturando objetos
+
+# shell do Django
+>>> from musicians.models import Musician
+
+>>> all_musicians = Musician.objects.all()
+>>> all_musicians
+# <QuerySet [<Musician: Musician object (1)>, <Musician: Musician object (2)>]
+
+>>> all_musicians[0]
+# <Musician: Musician object (1)>
+
+>>> all_musicians[0].last_name
+# 'Lennon'
+
+
+
+
+
+Recuperando objetos específicos com filtros
+
+# shell do Django
+>>> from musicians.models import Musician
+# 1.
+>>> musician_filter = Musician.objects.filter(first_name='John')
+>>> musician_filter
+# <QuerySet [<Musician: Musician object (1)>, <Musician: Musician object (2)>]
+
+# 2.
+>>> musician_exclude = Musician.objects.exclude(last_name='Lennon')
+>>> musician_exclude
+# <QuerySet [<Musician: Musician object (2)>]
+
+>>> musician_exclude.first()
+# <Musician: Musician object (2)>
+
+
+
+
+Recuperando um único objeto
+
+# shell do Django
+>>> from musicians.models import Musician
+
+
+>>> one_musician = Musician.objects.get(first_name='John', last_name='Lennon')
+>>> one_musician
+# <Musician: Musician object (1)>
+
+
+
+Utilizando o .get, caso seus filtros encontrem nenhum resultado, 
+será levantada uma exceção do Django chamada DoesNotExist. 
+Se a consulta resultar em múltiplos resultados encontrados, 
+outra exceção será levantada, a MultipleObjectsReturned.
+
+
+
+Capturando e modificando registros
+
+Para modificar um registro do banco, primeiro precisamos capturá-lo via ORM do Django.
+
+# shell do Django
+>>> from musicians.models import Musician
+
+# Capturando o registro de chave primária 1 do banco utilizando .get
+>>> musician = Musician.objects.get(pk=1)
+>>> musician
+# <Musician: Musician object (1)>
+
+>>> musician.instrument
+# vocal
+
+>>> musician.instrument = 'guitar'
+>>> musician.save()
+
+>>> musician.instrument
+# guitar
+
+

@@ -1,0 +1,12 @@
+A importação absoluta é um tipo de importação que permite que você importe módulos e 
+objetos de um caminho absoluto (isto é, um caminho completo a partir da raiz do sistema 
+de arquivos) em vez de um caminho relativo. Foi exatamente essa importação absoluta que 
+fizemos no primeiro exemplo de módulos, e também o que fizemos no exemplo de pacotes:
+
+# primeiro exemplo módulos main.py
+from soma import somar
+from subtracao import subtrair
+
+# segundo exemplo pacotes main.py
+from operacoes_matematicas.soma import somar
+from operacoes_matematicas.subtracao import subtrair

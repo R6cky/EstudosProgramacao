@@ -1,0 +1,141 @@
+1 : 1 
+
+# bios/models.py
+from django.db import models
+
+class Bio(models.Model):
+    author = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
+    published_date = models.DateField(null=True)
+
+    musician = models.OneToOneField("musicians.Musician", on_delete=models.CASCADE) <----------------------------
+    # "musicians.Musician":
+    #   - string que representa com qual classe a relação está denotada
+    # on_delete:
+    #  - que tipo de ação será executada na deleção
+
+
+
+
+
+
+1:N 
+
+Considere dois tipos de objetos, A e B. Um exemplo de relacionamento 1 para N (1 → N) 
+entre A e B seria uma instância de A se relacionando com várias instâncias de B, 
+enquanto cada instância de B só pode se relacionar a uma única instância de A. 
+
+
+No Django, construímos um relacionamento 1:N utilizando a classe ForeignKey para criar o 
+campo de referenciação no momento da elaboração da Model, sempre do lado N da relação. 
+Nesse caso, a nossa model Album em albums/models.py ficará da seguinte forma:
+
+
+
+
+# albums/models.py
+from django.db import models
+
+class Album(models.Model):
+    name = models.CharField(max_length=255)
+
+    musician = models.ForeignKey(
+"musicians.Musician", on_delete=models.CASCADE, related_name="albums"
+)
+
+
+
+
+
+N:N
+
+o Django, construímos um relacionamento N:N utilizando a classe ManyToManyField para criar o 
+campo de referenciação no momento de elaboração da Model. Nesse caso, tanto faz em qual lado 
+da relação usaremos do ManyToManyField, só temos que ter cuidado para referenciar corretamente. 
+No exemplo, escolheremos criar o relacionamento com a model Tag:
+
+
+
+
+# tags/models.py
+from django.db import models
+
+class Tag(models.Model):
+    name = models.CharField(max_length=255)
+
+    albums = models.ManyToManyField("albums.Album", related_name="tags")
+
+
+
+
+
+Mas, onde será criada a tabela pivô, necessária entre relacionamentos N:N? O próprio Django 
+ficará encarregado de fazer isso automaticamente. Rodemos nossas migrations para entender 
+melhor o que vai ser criado.
+
+
+
+
+
+# Na shell do Django:
+from musicians.models import Musician
+from tags.models import Tag
+from albums.models import Album
+
+# Criando novo musico
+m1 = Musician.objects.create(first_name='John', 
+                            last_name='Frusciante', 
+                            instrument='Guitar')
+# Criando dois álbuns novos para o musico
+a1 = Album.objects.create(name='The Empyrean', musician=m1)
+a2 = Album.objects.create(name='Curtains', musician=m1)
+# Criando três tags sem associação
+t1 = Tag.objects.create(name='Experimental Rock')
+t2 = Tag.objects.create(name='Post Rock')
+t3 = Tag.objects.create(name='Alternative Rock')
+
+# Associando tags 1 e 2 com álbum 1
+a1.tags.add(t1)
+a1.tags.add(t2)
+a1.tags.all()
+# <QuerySet [<Tag: Tag object (1)>, <Tag: Tag object (2)>]>
+
+a1.tags.values()
+# <QuerySet [
+#              {'id': 1, 'name': 'Experimental Rock'},
+#              {'id': 2, 'name': 'Post Rock'}
+#             ]>
+
+# Associando tag 3 ao álbum 2
+a2.tags.add(t3)
+a2.tags.values()
+# <QuerySet [{'id': 3, 'name': 'Alternative Rock'}]>
+
+# Criando mais 2 tags sem associação
+t4 = Tag.objects.create(name='Pop')
+t5 = Tag.objects.create(name='Kpop')
+
+# Associando tag 4 e tag 5 ao álbum 2
+a2.tags.set([t4, t5])
+a2.tags.values()
+# <QuerySet [{'id': 4, 'name': 'Pop'}, {'id': 5, 'name': 'Kpop'}]>
+
+
+
+
+Perceba que conseguimos vincular um novo objeto Tag simplesmente utilizando o add no respectivo atributo 
+tags de um objeto Album. Além disso, conseguimos também vincular instâncias de Tag usando set, 
+mas nesse caso, esse método limpa as vinculações antes de criar conexões.
+
+
+**
+Em projetos mais complexos, talvez seja necessário que nossa tabela pivô contenha campos além das 
+referências FK (foreign key)para outras tabelas. Nesses casos, teremos que criar uma model da tabela 
+pivô, pois o comportamento padrão do Django não irá suportar essa interação. Para mais informações 
+consulte a seguinte documentação.
+
+
+
+
+
+

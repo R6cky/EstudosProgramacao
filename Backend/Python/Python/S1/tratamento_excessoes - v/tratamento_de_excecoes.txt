@@ -1,0 +1,64 @@
+Introdução
+
+Quando ocorre um erro no Python, o interpretador interrompe a execução do código e chama a 
+exceção associada a esse erro. Estas exceções sempre serão uma classe que terá seu nome terminado com Error.
+
+
+
+Exceções
+
+Todas as exceções nativas do Python são herdadas da classe Exception.
+
+Tratamento de Exceções na Prática
+
+O tratamento de erros em Python é feito com a palavra-chave try e except. 
+O bloco de código que pode gerar um erro é colocado no bloco try, e o código que 
+deve ser executado em caso de um erro é colocado no bloco except. 
+Se um erro ocorrer no bloco try, o fluxo de execução será interrompido e o 
+código no bloco except será executado.
+
+
+
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print("Não é possível dividir por zero!")
+
+
+
+Por questões de boas práticas, sempre devemos tratar as exceções especificamente, 
+ou seja, detalhando em conjunto ao except a(s) exceção(ões) que queremos tratar 
+no bloco de código do try.
+
+
+
+
+
+
+
+Capturando múltiplas exceções
+
+
+
+em determinadas situações, pode ser necessário que as respostas a erros diferentes sejam distintas. 
+vamos ver um exemplo de como capturar várias exceções específicas:
+
+
+def divide_dois_numeros(a, b):
+    try:
+        print(a / b)
+    except ZeroDivisionError:
+        print('É impossível dividir um número por zero')
+    except TypeError:
+        print('Um tipo inválido foi fornecido')
+
+divide_dois_numeros(1, 0)
+# 'É impossível dividir um número por zero'
+
+divide_dois_numeros('b', 'a')
+# 'Um tipo inválido foi fornecido'
+
+
+
+
+

@@ -1,0 +1,56 @@
+Um método em Python é uma função que pertence a um objeto ou classe. 
+Ele é usado para definir o comportamento de um objeto ou para realizar operações com os atributos do objeto.
+
+
+Em Python, existem três tipos de métodos de uma classe: métodos de classe, métodos estáticos e métodos de instância.
+
+
+
+Métodos de instância
+são métodos que pertencem a uma instância específica de uma classe sendo
+acessados através da instância. Eles recebem a instância como primeiro argumento (conhecido como self) 
+sendo usados para realizar operações com os atributos da instância.
+
+
+Métodos de classe 
+são métodos que recebem a classe como primeiro argumento (conhecido como cls) 
+sendo usados para modificar o estado da classe. Eles são definidos usando a palavra-chave 
+@classmethod acima do método.
+
+
+
+Métodos estáticos 
+são métodos que não recebem nenhum argumento especial (nem self, nem cls) 
+sendo usados para realizar operações que não estão relacionadas ao estado da 
+classe ou de uma instância. Eles são definidos usando a palavra-chave @staticmethod acima do método.
+
+
+
+
+Chamada de métodos
+Os métodos estáticos e de classe podem ser chamados diretamente pela classe em que foram definidos, 
+ou pelas instâncias dessa classe. Já os métodos de instância precisam ser chamados exclusivamente pelas 
+instâncias (objetos) da classe. Vamos ver um exemplo:
+
+# Chamando os métodos pelo objeto
+obj = MinhaClasse()
+
+print(obj.metodo_de_instancia())
+# Método de instância chamado
+
+print(obj.metodo_de_classe())
+# Método de classe chamado
+
+print(obj.metodo_estatico())
+# Método estático chamado
+
+# Chamando os métodos pela classe
+print(MinhaClasse.metodo_de_classe())
+# Método de classe chamado
+
+print(MinhaClasse.metodo_estatico())
+# Método estático chamado
+
+print(MinhaClasse.metodo_de_instancia())
+# TypeError: MinhaClasse.metodo_de_instancia() missing
+# 1 required positional argument: 'self'

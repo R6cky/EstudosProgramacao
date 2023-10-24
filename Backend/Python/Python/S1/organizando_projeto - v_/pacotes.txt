@@ -1,0 +1,13 @@
+Um pacote é uma coleção de módulos agrupados em uma estrutura de pastas.
+Os pacotes são usados ​​para organizar os módulos de uma maneira mais lógica e
+hierárquica e permitir que eles sejam reutilizados em vários projetos.
+
+
+para que um pacote seja reconhecido como tal pelo Python, é necessário adicionar um 
+arquivo especial chamado __init__.py (dunder init) na pasta do pacote. Esse arquivo 
+pode ser vazio, mas ele é usado pelo Python para identificar a pasta como um pacote e
+permitir que os módulos sejam importados corretamente.
+
+ao importar os módulos, agora teremos que referenciar o nome do pacote.funcao
+exemplo: operacoes_matematicas.soma
+

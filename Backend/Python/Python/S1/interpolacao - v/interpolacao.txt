@@ -1,0 +1,11 @@
+Também chamadas strings literais formatadas, f-strings (formatted strings) são uma forma de criar strings 
+que incluem valores dinâmicos em Python. 
+
+Para criar uma template string, você deve adicionar ao seu inicio a letra f. Dentro da string, 
+você pode usar chaves ({ }) para inserir valores dinâmicos. Por exemplo:
+
+>>> nome = 'Chrystian'
+>>> idade = 30
+>>> mensagem = f'Olá, meu nome é {nome} e eu tenho {idade} anos.'
+>>> mensagem
+'Olá, meu nome é João e eu tenho 30 anos.'

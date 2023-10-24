@@ -1,0 +1,21 @@
+É um recurso do django_rest_framework para serializar dados - validar - tratar
+
+from rest_framework import serializers
+
+# accounts/serializers.py
+from rest_framework import serializers
+
+class AccountSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    email = serializers.EmailField()
+    age = serializers.IntegerField()
+    sex = serializers.CharField()
+
+
+
+
+
+
+
+
+

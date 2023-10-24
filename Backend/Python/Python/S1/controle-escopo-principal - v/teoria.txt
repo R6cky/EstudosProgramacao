@@ -1,0 +1,20 @@
+Aula - Controle de Escopo Principal
+Introdução
+
+Em um script Python, conforme aumentamos a complexidade e implementamos 
+novos módulos e pacotes, ainda assim precisamos de um arquivo principal para servir como porta de entrada que contém todas as regras e chamadas de instruções para que nosso sistema inicie corretamente.
+
+Até agora, utilizamos o arquivo main.py para essa finalidade. 
+Vamos entender melhor como encapsular o que é ou não executado a partir 
+desse arquivo para termos mais controle sobre essa porta de entrada. Variável especial __name__
+
+A variável especial __name__ (ou dunder name para os íntimos) é 
+uma variável predefinida em que contém o nome do módulo atual. 
+Quando um módulo é importado em outro módulo ou script, o valor 
+de __name__ é definido como o nome do módulo. Quando um script é 
+executado diretamente, o valor de __name__ é definido como "__main__".
+
+
+
+
+

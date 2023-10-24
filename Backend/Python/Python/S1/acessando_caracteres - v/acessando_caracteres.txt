@@ -1,0 +1,47 @@
+Em Python, você pode acessar os caracteres de uma string usando índices. 
+Cada caractere em uma string é identificado por um índice, começando por 0 para o primeiro
+caractere e aumentando em 1 para cada caractere subsequente.
+
+
+Acessando caracteres
+
+>>> mensagem = 'Olá, Python!'
+⁠>>> primeiro_caractere = mensagem[0]
+>>> primeiro_caractere
+'O'
+>>> ultimo_caractere = mensagem[-1]
+>>> ultimo_caractere
+'!'
+>>> penultimo_caractere = mensagem[-2]
+>>> penultimo_caractere
+'n'
+
+---------------------------------------------------------------------------------------
+
+
+FATIAMENTO
+
+>>> fatia = mensagem[2:6]
+>>> fatia
+'á, P'
+
+
+
+name = "Cleiton"
+idade = 28
+print(type(name))
+print(f"Oi, meu nome é {name} e tenho {idade} anos.")
+
+first = name[-2]
+print(first)
+
+print(name[3:8])
+print(name[:3])
+print(name[5:])
+
+
+---------------------------------------------------------------------------------------
+
+
+
+

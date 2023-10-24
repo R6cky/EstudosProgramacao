@@ -1,0 +1,28 @@
+As listas em Python possuem vários métodos úteis que podem ser usados para manipular e trabalhar com os elementos da lista. 
+Aqui estão alguns dos principais:
+
+
+    list.append(x): adiciona o elemento x no final da lista.
+
+    list.extend(iterable): estende a lista adicionando todos os elementos do iterável (por exemplo, outra lista) no final da lista.
+
+    list.insert(i, x): insere o elemento x na posição de índice i da lista.
+
+    list.remove(x): remove o primeiro elemento da lista cujo valor é igual a x.
+
+    list.pop([i]): remove o elemento na posição de índice i da lista (ou o último elemento, se i não for especificado) e o retorna.
+
+    list.clear(): remove todos os elementos da lista.
+
+    list.index(x[, start[, end]]): retorna o índice do primeiro elemento da lista cujo valor é igual a x. 
+    É possível especificar os índices de início e fim da pesquisa usando as opções start e end.
+
+    list.count(x): retorna o número de vezes que o elemento x aparece na lista.
+
+
+    list.sort(key=None, reverse=False): classifica os elementos da lista em ordem crescente (ou decrescente, se reverse for verdadeiro). 
+    É possível especificar uma função de chave para determinar como os elementos são comparados usando a opção key.
+    
+
+
+    list.reverse(): inverte a ordem dos elementos da lista.
