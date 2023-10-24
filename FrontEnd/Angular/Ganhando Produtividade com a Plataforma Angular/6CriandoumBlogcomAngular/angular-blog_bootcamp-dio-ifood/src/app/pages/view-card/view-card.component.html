@@ -1,0 +1,18 @@
+<div class="conteiner-card">
+  <div class="card-image">
+    <img src="{{ imageViewCard }}" alt="imagepost" />
+  </div>
+  <div class="card-title">
+    <h2>{{ titleViewCard }}</h2>
+  </div>
+  <div class="card-content">
+    <p>{{ contentViewCard }}</p>
+  </div>
+  <div class="card-author">
+    <span>{{ dateViewCard }}</span>
+    <span
+      ><a [routerLink]="['']"
+        ><img src="/assets/icon-back.png" width="30px" alt="logo" /></a
+    ></span>
+  </div>
+</div>

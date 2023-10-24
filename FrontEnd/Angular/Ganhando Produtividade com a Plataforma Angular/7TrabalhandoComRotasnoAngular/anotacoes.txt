@@ -1,0 +1,205 @@
+const routes: Routes = [
+  { path: '', component: TitleComponent, pathMatch: 'full' }, // full - passar exatamente o caminho
+  { path: 'portifolio', component: CardComponent, pathMatch: 'prefix' }, // passar prefixo de rota
+  { path: '**', redirectTo: '' }, // Rota coringa
+];
+
+
+A rota coringa permite que se o usuário tentar alguma rota inexistente ou que não possa acessar, 
+o sistema redirecione para uma página específica ou de erro. 
+
+* Toda parte de navegacao de rotas fica dentro do <router-outlet/>
+  Os conteúdos fora da tag <router-outlet/> são estáticos. 
+
+
+ <li><a [routerLink]="['/']" [routerLinkActive]="['myclas']">ss</a></li>
+ RouterLink substitui o atributo href sua sintaxe é igual a de cima. 
+ routerLinkActive é utilizado para ativar alguma classe de estilização que 
+esteja configurada no seu arquivo. 
+
+  [routerLinkActiveOptions]="{exact:true}" Esse trecho de código foi utilizado na aula para
+  que somente um link ficasse estilizado com uma classe específica. - PESQUISAR
+
+
+
+
+-----------------------------------------------------------------
+RECUPERANDO PARAMETROS DAS ROTAS 
+
+
+Parametro -> path: 'portifolio/:id'
+
+
+-> classe que irá capturar o id passado na url. 
+@Component({
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css'],
+})
+export class CardComponent {
+  constructor(private parametrizador: ActivatedRoute) {
+    this.parametrizador.params.subscribe((res) => console.log(res));
+  }
+}
+
+
+
+
+
+-----------------------------------------------------------------
+
+RECUPERANDO QUERY PARAMS
+
+
+ this.parametrizador.queryParams.subscribe((res) => console.log(res));
+
+ Através do queryParams
+
+-----------------------------------------------------------------
+  
+
+REDIRECIONAMENTO POR COMPONENTE
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css'],
+})
+export class CardComponent implements OnInit {
+  constructor(
+    private parametrizador: ActivatedRoute,
+    private navegador: Router
+  ) {
+    this.parametrizador.params.subscribe((res) => console.log(res));
+    this.parametrizador.queryParams.subscribe((res) => console.log(res));
+  }
+  ngOnInit(): void {
+    setInterval(() => {
+      this.navegador.navigate(['/']);
+    }, 3000);
+  }
+}
+
+
+
+Fazemos isso com o setInterval(()=>{}, 2000)
+
+
+
+
+
+-----------------------------------------------------------------
+
+
+ROTAS CHILDRENS
+
+
+const routes: Routes = [
+  { path: '', component: TitleComponent, pathMatch: 'full' }, // full - passar exatamente o caminho
+  { path: 'portifolio/:id', component: CardComponent, pathMatch: 'prefix' }, // passar prefixo de rota
+  {
+    path: 'cards',
+    component: CardComponent,
+    children: [
+      { path: ':id', component: CardComponent },
+      { path: 'view', component: CardComponent },
+    ],
+  },
+  { path: '**', redirectTo: '' }, // Rota coringa
+];
+
+Através delas podemos setar rotas filhas. 
+
+
+-----------------------------------------------------------------
+
+
+PARAMETROS DE ROTAS CHILDREN
+
+
+export class CardComponent implements OnInit {
+  constructor(
+    private parametrizador: ActivatedRoute,
+    private navegador: Router
+  ) {
+    this.parametrizador.params.subscribe((res) => console.log(res));
+    this.parametrizador.queryParams.subscribe((res) => console.log(res));
+    this.parametrizador.firstChild?.queryParams.subscribe((res) =>
+      console.log(res)
+    );
+  }
+  ngOnInit(): void {
+    // setInterval(() => {
+    //   this.navegador.navigate(['/']);
+    // }, 3000);
+  }
+}
+
+--> this.parametrizador.firstChild?.queryParams.subscribe((res) =>
+      console.log(res)
+    );
+
+Diferença é basicamente essa, vc precisa setar o firstChjild para pegar os parametros
+filhos. 
+
+
+
+
+
+-----------------------------------------------------------------
+
+
+Trabalhando com SERVICES no Angular
+
+
+Arquivos TS 
+Regras de negócio
+Requisição de APIs
+camada geral da lógica 
+Um service não precisa se atrelar somente a 1 componente, é reaproveitável. 
+criar service especialista em algo, ao invés de criar um que faz muitas.
+Serviços de lógica da aplicação
+Arquivo provedor de informações e dados
+
+
+
+
+
+
+Componentes
+	- lógicas voltado para componentes, ocultar componentes, etc...visual
+
+
+
+
+
+
+-----------------------------------------------------------------
+
+PREPARANDO ESTRUTURAS DE PASTAS
+
+
+
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root' => Está na raiz, todos podem consumir dos dados
+})
+export class ServicePokemonService {
+
+  constructor() { }
+}
+
+Service não é um componente 
+Trabalha com injcao de dependencia
+
+
+
+
+
+

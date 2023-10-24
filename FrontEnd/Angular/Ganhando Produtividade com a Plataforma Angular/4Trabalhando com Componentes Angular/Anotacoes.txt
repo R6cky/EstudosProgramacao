@@ -1,0 +1,174 @@
+4 maneiras de inputar valor no elemento
+
+passando dinamicamente
+<tag label="{{buttonlabel}}"> </tag>
+
+
+passando de maneira direta
+<tag label="noticia"></tag>
+
+
+
+
+passando dinamicamente
+<tag [label]="buttonSecond"> </tag>
+
+
+passando de maneira direta
+<tag [label]="'CARRINHO'"> </tag>
+
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+data binding -> vinculação de dados
+faz com que dados conversem entre si
+
+
+Tipos de data binding
+	-> {{valor}} => interpolação
+	-> [propriedade] = "valor" => Property binding
+	-> (evento) = "Handler" => Event binding
+	-> [(ngModel)] = "propriedade" => Two way data binding
+
+
+
+EVENT BIND -> <button (click)="getAlert()"> </button> -> Chamando função ao disparar evento
+* É possível passar parâmetros
+
+
+----------------------------------------------------------------------------------
+
+
+Preparando ambiente local
+
+Node e npm
+
+VsCode
+Extensões
+- Angular language Service - linguagem do angula
+- auto close tag - fechar tag automaticamente
+- auto rename tag - renomeia tag de fechamento automaticamente
+- tema - aura theme opc
+- eslint - organização de código
+- formatador de código
+- editorConfig - ajuda na organização do código 
+
+
+Angular 
+	- npm install -g @angular/cli@14.1.2
+----------------------------------------------------------------------------------
+
+
+ng -> executador de scripts para o angular 
+
+ng new nome-do-projeto -> criando estrutura de projeto angular
+
+ng serve -> executar projeto
+
+
+ARQUIVOS DO PROJETO 
+	- Fora da pasta src, são arquivos de configuração
+	- dentro do src são arquivos de código
+		- index.html, onde o <app-root></app-root> é injetado
+		- main.ts -> arquvio proncipal de TS. (ele que sobe nossa aplicação)
+		- polifils.ts -> configurações de compatibilidade a navegadores mais antigos
+
+		- style.css -> aruqivo de estilização global. 
+		- test.ts -> arquivo de test
+
+		/src/assets -> pasta destinada a arquivos estáticos, icones, stc...
+		
+		- environments.ts -> arquivo de variáveis de ambiente. 
+
+		
+----------------------------------------------------------------------------------
+
+CICLO DO COMPONENTE
+
+
+ng generate component title OU "ng g c title" -> gerar compomente
+
+	
+
+ENTENDENDO CICLO DE VIDA 
+
+Comparacao com o ciclo de vida humano
+
+
+baby - child - teenager - adult - elderly 
+
+Oninit -> Interface que se refere a inicialização do component
+
+
+8 LIFECYCLES HOOKS 
+
+1 - ngOnInit() -> Acontece durante a inicialização do component
+
+2- ngOnChanges() -> Durante alguma modificação no componente
+
+3 - nDocheck() -> Toda vez que executa alguma verificação no componente
+
+	-> ngAfterContentInit() = Executa quando Angular realiza qualquer projeção de conteúdo em
+	   seus componentes. 
+
+	-> ngAfterContentChecked() = Executa sempre que o conteúdo do componente é verificado pelo
+	   pelo mecanismo de detecção de alteração do Angular.  
+	
+	-> ngAfterViewinit() = Executa depois que um componente é totalmente inicializado (carregou tudo). 
+
+
+	-> ngAfterViewChecked() = Executa quando a visualização de um componente é verificada 
+	   pelo algorítmo de detecção de alterações do Angular.
+
+
+4 - ng ondestroy() -> quando o component é destruido
+
+
+
+
+-> Ordem de execução :
+ 
+Constructor
+check-sample.component.ts:44 OnInit
+check-sample.component.ts:41 DoCheck
+check-sample.component.ts:35 AfterContentInit
+check-sample.component.ts:38 AfterContentChecked
+check-sample.component.ts:29 AfterViewInit
+check-sample.component.ts:32 AfterViewChecked
+core.mjs:25383 Angular is running in development mode.
+check-sample.component.ts:41 DoCheck
+check-sample.component.ts:38 AfterContentChecked
+check-sample.component.ts:32 AfterViewChecked
+check-sample.component.ts:41 DoCheck
+check-sample.component.ts:38 AfterContentChecked
+check-sample.component.ts:32 AfterViewChecked
+
+
+
+
+
+-->> ORDEM DOS EVENTOS DO DOCHECK
+
+
+DoCheck - checa o componente
+AfterContentChecked - checa conteúdo do componente
+AfterViewChecked - checa visualização do componente
+
+
+
+
+-->> ONDESTROY 
+
+
+Evento disparado sempre quando um conponente é destruído. 
+como exemplo criei um componente e renderizei ele condicionamente, 
+se true ele renderizava se false ele saia da tela (era "destruído"), como 
+consequencia o ondestroy era disparado. 
+
+
+
+

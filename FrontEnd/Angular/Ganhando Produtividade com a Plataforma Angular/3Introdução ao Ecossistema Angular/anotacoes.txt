@@ -1,0 +1,136 @@
+framework Angular - google
+
+Typescript - como linguagem principal
+
+SPAs - são seu foco
+
+Componentes - São a base da arquitetura
+
+Estrutura organizada e bem definida
+
+sistema de tooling - muito rico: CLI, HTTP, Router
+
+
+
+
+
+Pré requisitos 
+
+HTML e CSS
+NODE e NPM 
+JAVASCRIPT e TYPESCRIPT
+
+
+-------------------------------------------------------------
+
+Angular JS x Angular 
+
+
+Angular JS => Obsoleto, foca em js puro e tem estratégias de organização
+diferente.
+Angular => Atualmente utilizado. 
+
+
+
+Algumas opções de frameworks 
+VueJS, ReactJS, Angular, Aurelia
+
+
+React x Angular
+
+
+React
+Mercado
+Curva de aprendizado menor
+
+
+
+Angular
+Déficit de profisisonal devido a curva de aprendizagem
+
+
+
+
+Onde eles se diferenciam 
+
+React - biblioteca
+	- flexível
+	- não tem organização padrão
+	
+Angular - Framework
+	- menos flexível quanto a organização
+	- tem organização padrão
+	- já tem organização padrão 
+
+
+
+
+
+	
+
+-------------------------------------------------------------
+
+
+Comparação com relação a estratégia - Angular x React 
+
+
+-------------------------
+Angular --------- React |
+-------------------------
+Google ---------powered By--------------------Facebook
+Framework ---------definition-----------------library
+HTML + TS ---------Templating-----------------JS + JSX
+2 Way -----------Binding----------------------Uni Direcional
+Regular DOM --------DOM-----------------------Virtual DOM
+Services ---------Appliction logic/state----- Flux/Redux ou Context API
+
+
+
+-------------------------------------------------------------
+
+As 4 camadas de um WEB APP 
+
+Componentes
+	- elemento visual, customizável, reutilizável
+
+Gerenciamento de Estado 
+	- states: Responsáveis por garantir que as informações dos componentes fiquem sincronizadas
+	  e facilita a comunicação de um componente com o outro. 
+	Ex: Atualizar carrinho de compras ao clicar no botão de compra do produto. 
+	
+	Exemplo de ferramentas para gerenciamento de estados de diversos frameworks
+	FLUX(React), REDUX(React), CONTEXT API(React), RECOIL, STOREON, VUEX(Vue), NGRX(Angular), NGXS(Angular)
+	
+Roteamento
+	Responsável pela forma de como você navega na aplicação
+	meuapp/login
+	meuapp/home
+	
+	Ex de bibliotecas 
+	
+	History API (Próprio navegador), React Router(React), Vue Router(Vue), Angular RoutingModule(Angular)
+
+
+
+Renderização
+Render - Responsável por decidir a melhor naneira de acessar e entregar para o browser o 
+componente pronto para que ele seja desenhado na janela sem complicações. 
+
+
+	3 formas de renderização 
+	
+	1- 100% server 
+		Servidor já entrega html pronto para o cliente
+	2- server e client
+		parte dessa renderização acontece no servidor e parte no cliente
+	3- 100% client
+		toda a parte de render fica por conta do cliente, ex de uso: angular, react, etc...
+
+
+	
+
+	
+
+
+
+

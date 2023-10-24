@@ -1,0 +1,217 @@
+Diretivas - São a maneira como o Angular altera e manipula a DOM dinamicamente
+	
+
+	- 2 tipos 
+		- Diretivas de Atributo = Alteram o comportamento de um 
+		  			  componente/elemento ou de até outra diretiva. 
+		
+		* NgClass - Adiciona ou remove conjunto de classe Css
+	 	* NgStyle - Adiciona ou remove um conjunto de estilos ao HTML				
+		* NgModel - Adiciona vinculação de dados bidirecional a um elemento
+		  de formulário.
+
+		- Diretivas Estruturais = Moldam ou remodelam a estrutura da DOM,
+		  			  adicionando ou removendo elementos na tela.
+
+		* Nglf - Condicional que verifica se o modelo deve ser visualizado ou não.
+		* NgFor - Repete um elemento para cada item em uma lista.
+		* NgSwitch - Utilizado para alterar entre comportamentos alternativos.
+
+ 
+
+
+		Nglf - Recurso para você mostrar ou não um elemento/ componente
+		Ex: <app-card *ngIf="true"></app-card>
+
+		Ngif com Data binding - É quando você passa o *ngIf="variavel" em um elemento
+		e o valor booleano dele vem de uma propriedade na classe do componente. 
+
+			
+		NgIf com ngTemplate - <ng-template> é uma tag html que permite a renderização condicional junto com o NgIf. 
+		Ex: 
+		<app-card *ngIf="true; else anotherblock"></app-card>
+		<ng-template #anotherblock>
+  		<p>Hello i am secret block</p>
+		</ng-template>  
+		
+		ng-template é uma tag que por padrão fica invisivel, por tanto o que está dentro dela fica em off, até que 
+		combinada com o NgIf com um valor false, ela e tudo o que está dentro é renderizado em tela. 
+
+
+		NgFor - Laço de repetição em componentes = Permite a renderização dinâmica de componentes, de acordo 
+		por exemplo com uma lista de produtos, segue o exemplo de código. 
+		
+		
+		<ul>
+  			<li *ngFor="let p of produtos">
+    			<div><img src="" alt="img do produto" /></div>
+    			<h2>{{ p }}</h2>
+    			<p>description of product</p>
+    			<p>price of product</p>
+  			</li>
+		</ul>
+		
+		Fazemos um laço de repetição na tag LI e para cada item do array foi renderizado o item em cada volta do loop. 
+		
+		
+		
+
+REATIVIDADE NO ANGULAR 
+
+
+	Exemplo prático: Se criarmos um método para adicionar itens ao array que utilizamos para renderizar os itens no tópico anterior com o NgFor
+	a medida que formos acrescentando, os elementos também vão sendo renderizados na tela, pois está acontecendo a camada REATIVIDADE. 
+	Os dados e elementos estão conectados, então por isso acontece esta reação na aplicação. 
+
+
+		
+	
+	NgFor com index
+		- alem de percorrer uma lista com o "let p of produtos", vc pode utilizar em seguida um comando para encontrar o index do elemento. 
+		Ex de código: 
+		<ul >
+  			<li *ngFor="let p of produtos; let i = index">
+    			<div><img src="" alt="img do produto" /></div>
+    			<h2>{{ i }} - {{ p }}</h2>
+    			<p>description of product</p>
+    			<p>price of product</p>
+    			<button (click)="adicionar()">Adicionar</button>
+    			<button (click)="remover(i)">X</button>
+  			</li>
+		</ul>
+		
+	E com isso, por exemplo, remover o item relacionado aquele index. 
+
+	
+
+
+
+
+
+
+
+SWITCH E SWITCH CASE = Criar blocos condicionais nas renderizações html
+
+	Ex de código: 
+
+<div [ngSwitch]="menuType">
+  <div *ngSwitchDefault="'user'">
+    <ul>
+      <li>Inicio</li>
+      <li>Editar perfil</li>
+      <li>Sair</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'admin'">
+    <ul>
+      <li>Inicio</li>
+      <li>Editar perfil</li>
+      <li>Editar usuarios</li>
+      <li>Adicionar usuarios</li>
+      <li>Sair</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'superuser'">
+    <ul>
+      <li>Inicio</li>
+      <li>Editar perfil</li>
+      <li>Editar usuarios</li>
+      <li>Adicionar usuarios</li>
+      <li>Excluir usuários</li>
+      <li>Mover usuários</li>
+      <li>Sair</li>
+    </ul>
+  </div>
+</div>
+
+Neste exemplo, há uma div principal que tem a diretiva [NgSwitch]="menuType", e o menuType é uma prop da classe do componente. 
+Dentro da DIV principal há divs que serão renderizadas de acordo com o valor de menuType, que terá o valor de um determ tipo de usuário
+dependendo do tipo de usuário, será renderizado um menu específico. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Diretivas de atributo 
+
+
+
+NgClass = 	Possibilita a troca de classe de uma tag html. Exemplo de uso seria uma troca de tema/cor da página. 
+Ex de uso: 
+
+   <h2 [ngClass]="color">Comp atributos components</h2>
+   <button (click)="swapColor()">Change color</button>
+	
+
+Neste caso foi criado uma tag que utilizou o [ngClass], o color é uma propriedade que recebe o valor de uma classe que armazena a cor do conteúdo da tag. 
+O Botão chama um método que alterna o valor da propriedade "color", por isso, ao clicar no button o texto troca de cor.
+
+
+
+
+
+
+
+
+NgStyle = Possibilita passar uma propriedade e um valor em CSS para uma tag. 
+Ex de código: 
+
+  <h3 [ngStyle]="{ background: corFundo, color: 'white', padding: '5px' }">
+
+
+ o [NgStyle] setou um background por meio de uma propriedade "corFundo" que veio da classe do componente. 
+ É possível setar vários outros atributos css separando por vírgula, como no código a cima. 
+
+
+
+
+
+
+
+NgModel = comunicação de 2 lados (HTML -> Typescript e vice versa) ->> [()]
+
+
+
+* Não vem por padrão no angular 
+
+1 - importar no arquivo *.mudule.ts  (import { FormsModule } from @angular/forms)
+
+2 - Inserir o FormsModule no "Imports" neste mesmo arquivo. 
+
+3 - setar na tag -> [(ngModel)="propriedade"] => Essa propriedade terá o valor espelhado no input, o que eu digitar, alimentará essa variável
+Ex de código: 
+
+  <input type="text" [(ngModel)]="dataInput" />
+  <p>{{ dataInput }}</p>
+	
+Tudo o que for digitado irá aparecer na tag P. 
+
+
+
+
+
+
+
+
+NgTemplate = Template = pedaço de HTML que é um modelo. = Como se fosse um componente que você pode usar. Por padrão ele não é renderizado, vem desabilitado.
+Para ativar deve haver uma condição que o valide com uma condição no TRUE. Ex: utilizando com o "NgIf". 
+
+
+
+
+
+
+NgContent = Permite a captura de valores de tags que não renderizam por padrão. 
+no exemplo foi passado duas tags dentro de uma tag de componente no APP component, nçao foram renderizadas. 
+Mas com o <ngConten> é possível renderizar escolhendo a atag através do atributo select="tag"
+Ex de código: 
+
+- App component 
+
+<app-comp-atributos>
+  <h3>Testando Ng Content</h3>
+  <h4>Ng Content</h4>
+</app-comp-atributos>
+
+-<ng-content select="h3"></ng-content> -> Escolhendo a atag para ser renderizada no componente  <app-comp-atributos>
+
+ 

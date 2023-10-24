@@ -1,0 +1,51 @@
+.menu {
+  width: 800px;
+  height: 80px;
+  display: none;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Barriecito", cursive;
+  color: #a80f00;
+  font-weight: bold;
+}
+
+.logo {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+a {
+  color: #a80f00;
+}
+
+a:visited {
+  color: #a80f00;
+}
+
+@media (min-width: 700px) {
+  .menu {
+    width: 800px;
+    height: 80px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Barriecito", cursive;
+    color: #a80f00;
+    font-weight: bold;
+  }
+
+  .logo {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}

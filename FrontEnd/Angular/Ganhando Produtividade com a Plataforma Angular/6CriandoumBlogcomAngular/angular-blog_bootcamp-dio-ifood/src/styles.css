@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: none;
+  pading: none;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: (220, 220, 220);
+  animation: bodyFrame 0.5s linear 0s 1 normal none;
+}
+
+@keyframes bodyFrame {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

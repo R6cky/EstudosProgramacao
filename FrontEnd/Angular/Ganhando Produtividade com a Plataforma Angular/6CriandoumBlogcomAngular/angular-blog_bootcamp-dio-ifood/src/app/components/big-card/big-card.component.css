@@ -1,0 +1,19 @@
+.big-card {
+  width: 100vw;
+  max-width: 88%;
+  margin: 0 auto;
+  height: 500px;
+  background-image: url("../../../../src/assets/fundo-big-card.png");
+  filter: brightness(98%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 20px;
+}
+
+.big-card > h2 {
+  font-size: 48px;
+  color: red;
+
+  font-family: "Barriecito", cursive;
+}

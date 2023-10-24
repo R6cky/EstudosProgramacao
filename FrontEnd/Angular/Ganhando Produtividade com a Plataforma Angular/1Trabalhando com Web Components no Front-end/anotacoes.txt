@@ -1,0 +1,58 @@
+Utilizando o shadow dom e criando um componente
+
+
+class CardNews extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.innerHTML = `<h1>Hello World</h1>
+                        <h3>The ms lee go to the beach now?</h3>
+                        `;
+  }
+}
+
+customElements.define("card-news", CardNews);
+
+após isso é só importar a tag <card-news/> no documeto html
+
+componente -> conjunto de tags html estruturadas 
+
+Benefício de componentização => poder reaproveitar várias vezes durante o projeto e em outros
+
+------------------------------------------------------------------------------------------------
+
+Componente dinamico e com estilização 
+
+class TituloDinamico extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadow = this.attachShadow({ mode: "open" });
+
+    //base do componente
+    const componentRoot = document.createElement("h1");
+    componentRoot.textContent = "Cleiton";
+    //estilizar o component
+    const style = document.createElement("style");
+
+    style.textContent = `
+    
+        h1{
+            color:red;
+
+        }
+    `;
+    //enviar para shadow
+    shadow.appendChild(componentRoot);
+    shadow.appendChild(style);
+  }
+}
+
+customElements.define("titulo-dinamico", TituloDinamico);
+
+essa estilização é aplicada somente a este componente, os outros com as mesmas tags
+não herdam essa personalização
+
+
+

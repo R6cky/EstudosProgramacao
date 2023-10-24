@@ -1,0 +1,11 @@
+(li>a)*3 => criar estrutura li com ancora 3 vezes. 
+
+
+@media screen (min-width: 700px) { }
+
+
+Trabalhar com 2 ou mais arquivos css no mesmo componente -> styleUrl = ['f1.css', 'f2.css', ...]
+
+
+----------------------------------------------------------------------------------------------------
+

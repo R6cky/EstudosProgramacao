@@ -1,0 +1,9 @@
+<li class="small-cards" title="card of list">
+  <div><img src="{{ image_post }}" alt="image-small-card" /></div>
+  <h2 class="title-small-card">{{ title_post }}</h2>
+  <p class="content-small-card">{{ content_post }}</p>
+  <span class="author-small-card">
+    <span>{{ post_date }}</span>
+  </span>
+  <a [routerLink]="['viewCard', id]">Visualizar post</a>
+</li>

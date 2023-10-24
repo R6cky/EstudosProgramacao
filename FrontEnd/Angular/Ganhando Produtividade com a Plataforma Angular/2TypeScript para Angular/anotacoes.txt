@@ -1,0 +1,72 @@
+Instalando typescript
+	npm install typescript -D -> vai instalar o ts somente para desenvolvimento
+	
+
+Rodar código em ts
+	- node src/index.ts
+
+* O node só lê código em JS, então é necessário transpilar o código TS em JS andes de executar.
+
+
+Traspilar o código ts para js -> npx tsc src/index.ts
+	-> Criará um arquivo js com o código transpilado em js
+
+
+*tsc = typescript compiler
+
+
+Criar arquivo TSconfig.json
+	-> npx tsc --init
+	* Gera um arquivo json para vc setar configurações
+	https://www.typescriptlang.org/tools <- sobre o arquivo
+	
+
+Configurando script no package.json
+	-> "scripts": {
+    "start": "npx tsc && node build/index.js"
+  },	
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tipos com o tyoescript
+
+Quando usar INTERFACES
+
+Interfaces é suggerido utilizar com classes, para tipar os métodos e atributos
+e o TYPE para tipar as variáveis, objetos, arrays. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Classes 
+
+
+// DATA MODIFIES - Modificadores de acesso
+/*
+Public - O atributo ou método fica acessível externamente, globalmente. 
+
+Private - o atributo / método fica provado, só pode ser acessado internamente na classe 
+onde foi criado. 
+
+Protected - Só pode ser acessado pela classe pai e pelas subclasses 
+
+*/
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ts-node-dev <- servidor local que facilita a execução do código em ambiente de desenvolvimento
+o node por padrão não é capaz de executar código typescript, somente javascript, por isso 
+utilizamos o npx tsc src/index.ts para transpilar o código em JS e depois rodar com o node. 
+com o ts-node-dev resolvemos este problema, ele faz o build e executa o código sem que tenhamos 
+que gerar outro arquivo js no build. 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Decorators - Não entendi
+
+
+
+
+
+
