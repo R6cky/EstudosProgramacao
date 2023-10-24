@@ -1,0 +1,83 @@
+1 npm init --y # Iniciando o projeto
+2 npm install express # Instalando o Express
+
+3 npm i typescript -D # instalando typescript
+
+4 npx tsc --init # criar arquivo tsconfig.json
+
+
+5 configurar arquivo com os dados a baixo 
+
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "CommonJS",
+    "typeRoots": ["src/@types", "node_modules/@types"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules"]
+}
+
+6 npm i @types/express -D # tipagem do express
+
+** O node não executa typescript, para conseguir executar 
+nosso servidor, devemos instalar uma outra lib "ts-node-dev"
+ela resolverá este problema. 
+
+npm i ts-node-dev -D 
+"dev": "ts-node-dev --cls --rs --ignore-watch node_modules src/app.ts"
+O script acima configura um script para a inicialização do servidor
+basta executar #"npm run dev"
+
+
+
+
+
+--libs para instalar
+
+
+
+
+
+
+estrutura básica##################################
+
+const express = require('express'); --importando express
+const app = express(); -- instanciando
+
+
+app.get('/', (req, res) => {
+  return res.send('Hello World!');
+}); -- funcao de requisicao
+
+
+
+// primeiroApp.js
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+}); -- funcao que inicia servidor
+
+
+
+node primeiroApp.js -- iniciando servidor
+
+
+
+criar .gitignore
+
+src/@types
+src/app.ts
+
+
+
+
+
+
+
+
+

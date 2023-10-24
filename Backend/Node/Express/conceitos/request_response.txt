@@ -1,0 +1,46 @@
+Request
+
+O objeto de requisição (req) é passado como um primeiro argumento para as 
+funções de callback das rotas e endpoints. Ele contém informações sobre a 
+requisição HTTP que o cliente enviou para o servidor, incluindo informações 
+como o cabeçalho da requisição, o corpo da requisição, os parâmetros de URL, 
+entre outros. Alguns exemplos de informações incluídas no objeto de requisição são:
+
+    req.headers: um objeto que contém os cabeçalhos da requisição.
+
+    req.body: um objeto que contém o corpo da requisição.
+
+    req.params: um objeto que contém os parâmetros de URL especificados na rota.
+
+    req.query: um objeto que contém os parâmetros de consulta da requisição.
+
+
+
+
+
+
+Response
+
+O objeto de resposta (res) é passado como um segundo argumento para as funções 
+de callback das rotas e endpoints. Ele é usado para enviar uma resposta para o
+ cliente e para configurar o cabeçalho de resposta HTTP. O objeto de resposta 
+possui vários métodos úteis para enviar uma resposta para o cliente, como:
+
+
+    res.send(body): envia o corpo especificado para o cliente. Ele pode ser uma string, um objeto JSON, um buffer, entre outros.
+
+    res.json(json): envia um objeto JSON para o cliente. Ele configura automaticamente o cabeçalho de resposta 'Content-Type' como 'application/json'.
+
+    res.status(statusCode): configura o código de status HTTP da resposta. Utiliza o status code 200 OK por padrão.
+
+
+
+
+ Para trocar o status code da rota é preciso seguir o seguinte padrão:
+
+ app.post('/', (req, res) => {
+   console.log(req.body);
+   return res.status(201).json(req.body);
+ });
+
+

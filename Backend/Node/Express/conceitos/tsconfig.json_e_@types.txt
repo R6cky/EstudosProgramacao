@@ -1,0 +1,78 @@
+Arquivo tsconfig.json
+
+Os arquivos tsconfig.json são arquivos de configuração usados 
+pelo compilador TypeScript. Eles permitem que você defina opções 
+de compilação, como o diretório de origem do seu código TypeScript, 
+o diretório de saída do código compilado e as configurações de tipos 
+de biblioteca.
+
+Para pegarmos a configuração inicial do tsconfig.json executamos
+ o seguinte comando no terminal: 
+# npx tsc --init
+#Para utilizar esse comando é necessário ter o TypeScript instalado no projeto. 
+
+
+modelo de configuração do tsconfig.json
+
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "typeRoots": ["src/@types", "node_modules/@types"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules"]
+}
+
+
+
+significado das tags 
+
+
+
+
+    "compilerOptions" é um objeto que contém opções de configuração do compilador.
+
+    "target" é a versão do JavaScript para qual o código TypeScript será compilado.
+
+    "module" é o módulo que será usado para o código compilado.
+
+    "typeRoots" é um array que contém os caminhos onde o compilador TypeScript deve procurar arquivos de tipos (.d.ts).
+
+    "esModuleInterop" é uma opção que ativa ou desativa a sintaxe de importação e exportação padrão do JavaScript (ES6).
+
+    "forceConsistentCasingInFileNames" o compilador irá garantir que os nomes de arquivos sempre estejam escritos da mesma forma, independentemente do sistema de arquivos usado.
+
+    "strict" é uma opção que ativa ou desativa o modo estrito de tipagem.
+
+    "exactOptionalPropertyTypes" especifica se os tipos de propriedades opcionais devem ser exatos.
+
+    "skipLibCheck" o compilador irá pular a verificação de tipos em arquivos de biblioteca e evitar gerar erros desnecessários, permitindo que você importe e utilize esses arquivos sem problemas.
+
+    "include" é um array de caminhos de arquivos que devem ser incluídos na compilação.
+
+    "exclude" é um array de caminhos de arquivos que devem ser excluídos da compilação.
+
+
+
+
+Os arquivos tsconfig.json são usados pelo comando tsc 
+(TypeScript Compiler) para saber como compilar o seu código.
+
+
+
+
+
+
+Arquivos @types
+
+Arquivos @types são pacotes de tipos de definição de tipo para bibliotecas 
+JavaScript que não possuem suporte nativo a tipos.
+
+
+
