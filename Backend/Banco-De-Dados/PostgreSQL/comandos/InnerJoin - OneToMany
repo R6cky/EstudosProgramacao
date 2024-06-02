@@ -1,0 +1,2 @@
+SELECT clients.name, clients.favorite_products, products.title FROM clients 
+INNER JOIN products ON clients.favorite_products = products.products_id;
