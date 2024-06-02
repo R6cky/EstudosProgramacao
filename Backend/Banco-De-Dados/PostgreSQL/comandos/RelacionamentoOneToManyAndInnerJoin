@@ -1,0 +1,68 @@
+
+-- create
+CREATE TABLE clients (
+  client_id SERIAL PRIMARY KEY, 
+  name TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE
+);
+
+
+INSERT INTO clients (name, email) VALUES  ('cleiton', 'cleiton@mail.com');
+INSERT INTO clients (name, email) VALUES  ('amanda', 'amanda@mail.com');
+INSERT INTO clients (name, email) VALUES  ('samuel', 'samuel@mail.com');
+INSERT INTO clients (name, email) VALUES  ('edneia', 'edneia@mail.com');
+
+   
+
+SELECT * FROM clients;
+
+
+
+
+CREATE TABLE products (
+  products_id SERIAL PRIMARY KEY ,
+  title TEXT NOT NULL,
+  price FLOAT NOT NULL
+);
+
+
+
+INSERT INTO products (title, price)VALUES ('vinho chileno', 199);
+INSERT INTO products (title, price)VALUES ('vinho italiano', 49);
+INSERT INTO products (title, price)VALUES ('vinho peruano', 89.90);
+INSERT INTO products (title, price)VALUES ('cerveja estela', 10);
+INSERT INTO products (title, price)VALUES ('vinho canadense', 80);
+INSERT INTO products (title, price)VALUES ('whisky do bom', 87.90);
+
+
+
+
+
+
+SELECT * FROM products;
+
+
+ALTER TABLE "clients" ADD COLUMN "favorite_products" INTEGER REFERENCES products("products_id");  
+
+
+
+UPDATE clients SET  "favorite_products" = 1 WHERE "client_id" = 1;
+UPDATE clients SET  "favorite_products" = 2 WHERE "client_id" = 2;
+UPDATE clients SET  "favorite_products" = 3 WHERE "client_id" = 3;
+UPDATE clients SET  "favorite_products" = 5 WHERE "client_id" = 4;
+
+
+
+SELECT * FROM clients;
+
+
+
+SELECT name, favorite_products FROM clients;
+
+
+SELECT clients.name, clients.favorite_products, products.title FROM clients 
+INNER JOIN products ON clients.favorite_products = products.products_id;
+
+
+
+SELECT * from products;
