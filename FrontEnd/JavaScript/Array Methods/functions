@@ -125,9 +125,27 @@ paramClass(10,undefined,10) // se eu quiser pular um parâmetro, posso utilizar 
 
 
 **
+**
+
+
+Desestruturando parâmetros na função
+
+function fn([valor1, valor2, valor3]){
+  console.log(valor1,  valor2, valor3)
+}
+fn([23, 10, 34])
 
 
 
+
+
+O rest operator ( ... ) vai inserir elementos específicos no parêtro da fn em um array
+
+function conta(operador, acumulador, ...numeros){
+  console.log(operador, acumulador, numeros)
+}
+
+conta("+", 0, 30, 40, 60)
 
 
 
