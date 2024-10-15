@@ -139,7 +139,7 @@ fn([23, 10, 34])
 
 
 
-O rest operator ( ... ) vai inserir elementos específicos no parêtro da fn em um array
+O rest operator ( ... ) vai inserir elementos específicos no parêtro da fn em um array (deve ser o último parametro da função)
 
 function conta(operador, acumulador, ...numeros){
   console.log(operador, acumulador, numeros)
