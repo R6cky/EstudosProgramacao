@@ -61,6 +61,83 @@ executaFuncao(showWord)
 
 ------------------------------------------------------------------------------------------------
 
+const pessoa = {
+  name: function(){
+    console.log("Hello world")  
+  },
+  
+  
+  sexo(){
+    console.log("Masculino")
+  }
+
+}
+
+
+
+pessoa.name() // Essa função é o valor da chave NAME no objeto
+pessoa.sexo() // Essa função nãpo possue chave, foi declarada diretamente no objeto. 
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+PARAMETROS DA FUNÇÃO
+** Nenhum parâmetro foi passado para a função, porém foi possível passar argumentos, utuilizando o "arguments". **
+É possível iterar sobre eles. [ OBS. Somente quando declaramos a função com a palavra FUNCTION] 
+
+
+
+function x (){
+  
+  let total = 0
+  for (let arg of arguments){
+    total+=arg 
+     console.log(total)
+  }
+}
+
+
+
+x(1,2,3,4,5,6,7)
+x("C", "L", "E", "I", "T", "O", "N")
+
+
+
+**
+
+
+
+function paramClass(a,b = 2,c = 4){
+  console.log(a,b,c)
+  console.log(arguments)
+}
+
+paramClass() // Se não passo nenhum parametro, o dado deles vem como undefined. 
+
+paramClass(1,2,3,4,5,6) // Se passo mais argumentos que preciso, ele os desconsidera 
+
+paramClass(10,undefined,10) // se eu quiser pular um parâmetro, posso utilizar o undefined. 
+
+//OBS. Caso eu passe mais argumentos que parâmetros, o JS irá armazenar ambos no objeto arguments
+
+
+
+**
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+
+
+
 
 
 
