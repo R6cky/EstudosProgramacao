@@ -1,6 +1,6 @@
 Hoisting 
 
-VARIAVEIS
+*VARIABLES*
 
 console.log(name) // O valor da variável torna-se UNDEFINED. 
 console.log(sexo) // Apresenta erro ao tentar ler variável antes da declaração
@@ -9,4 +9,30 @@ console.log(apelido) // Apresenta erro ao tentar ler variável antes da declara�
 let sexo = "masculino";
 const apelido = "Cleitinho"
 var name = "cleiton";
+
+
+
+
+*HOISTING WITH FUNCTIONS* 
+
+
+
+
+showname() // Execultada normalmente
+showPhrase() // Apresenta erro ao tentar ler variável antes da declaração
+showAddress() // Apresenta erro ao tentar ler variável antes da declaração
+
+function showname() {
+  console.log("Meu nome é Fred")
+}
+
+
+const showPhrase = () => {
+  console.log("Hello World!")
+}
+
+
+let showAddress = function(){
+  console.log("Av Amazonas")
+}
 
