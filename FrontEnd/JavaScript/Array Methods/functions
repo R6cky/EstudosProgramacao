@@ -10,7 +10,7 @@ let sexo = "masculino";
 const apelido = "Cleitinho"
 var name = "cleiton";
 
-
+------------------------------------------------------------------------------------------------
 
 
 *HOISTING WITH FUNCTIONS* 
@@ -35,4 +35,33 @@ const showPhrase = () => {
 let showAddress = function(){
   console.log("Av Amazonas")
 }
+
+
+
+------------------------------------------------------------------------------------------------
+
+Funções são FIRST CLASS OBJECT ( Objetos de primeira classe ), significa que as funções são tratadas como dado
+
+
+Funções podem receber outras funções como parâmetro. 
+Exemplo abaixo: 
+
+function showWord(name){
+  console.log(`Hello world! ${name}`);
+};
+
+
+const executaFuncao = (fn) => {
+  fn("Cleiton")
+} 
+
+executaFuncao(showWord)
+
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+
 
