@@ -1,0 +1,12 @@
+Hoisting 
+
+VARIAVEIS
+
+console.log(name) // O valor da variável torna-se UNDEFINED. 
+console.log(sexo) // Apresenta erro ao tentar ler variável antes da declaração
+console.log(apelido) // Apresenta erro ao tentar ler variável antes da declaração
+
+let sexo = "masculino";
+const apelido = "Cleitinho"
+var name = "cleiton";
+
