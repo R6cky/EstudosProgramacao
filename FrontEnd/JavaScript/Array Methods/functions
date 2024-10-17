@@ -151,7 +151,7 @@ conta("+", 0, 30, 40, 60)
 
 
 
-Alternativa ao ARGUMENTS nativo do JS
+Alternativa ao ARGUMENTS nativo do JS ( Funciona com todos os tipos de função)
 const fn = (...args) => {
   console.log(args)
 }
@@ -159,10 +159,26 @@ const fn = (...args) => {
 fn("a", "b, 12,1,1,1")
 
 ------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 
 
+RETORNO DA FUNÇÃO
 
 
+Exemplo com uma função dentro de outra:
 
+function criaMultiplicador(multiplicador) {
+  return function (n) {
+    return n * multiplicador;
+  };
+}
+const duplica = criaMultiplicador(2);
+const triplica = criaMultiplicador(3);
+const quatriplica = criaMultiplicador(4);
+
+console.log(duplica(5));
+console.log(triplica(10));
+console.log(quatriplica(50));
 
 
