@@ -182,3 +182,34 @@ console.log(triplica(10));
 console.log(quatriplica(50));
 
 
+
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+
+Closure: As É o "poder" que as "Subfunções" tem de acessar seus escopos,exemplo abaixo, afunção anônima pode acessar 3 escopos, o da função 
+"pai" e o escopo global. 
+
+
+
+function myFuncton() {
+  let name = "Cleiton";
+
+  return function () {
+    return name;
+  };
+}
+
+const funcao = myFuncton();
+console.dir(funcao); // semelhante ao console.log()
+
+
+
+
+
+
+
+
+
+
