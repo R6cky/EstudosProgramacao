@@ -205,6 +205,19 @@ const funcao = myFuncton();
 console.dir(funcao); // semelhante ao console.log()
 
 
+// dados no navegador... abaixo
+
+Scopes[3]
+0
+: 
+Closure (myFuncton) {name: 'Cleiton'} // Escopo da função pai/Mãe
+1
+: 
+Script {funcao: ƒ} // nível da função filha, seexistisse outra função nomesmo nível, ela poderia acessá-la
+2
+: 
+Global {window: Window, self: Window, document: document, name: '', location: Location, …} // Escopo global
+
 
 
 
