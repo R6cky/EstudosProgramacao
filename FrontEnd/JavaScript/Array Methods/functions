@@ -219,7 +219,19 @@ Script {funcao: ƒ} // nível da função filha, seexistisse outra função nome
 Global {window: Window, self: Window, document: document, name: '', location: Location, …} // Escopo global
 
 
+-----------------------------------------------------
+OUTRO EXEMPLO A BAIXO
 
+const fn = (name) => {
+  
+  return function(){
+    return name
+  }
+}
+
+const fisrt_name = fn("Cleton")
+const fisrt_name2 = fn("Polyana")
+console.log(fisrt_name() + " - " + fisrt_name2()) //Cleton - Polyana
 
 
 
