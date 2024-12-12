@@ -306,6 +306,8 @@ Funções de fabrica - factory functions
 
 São funções que retornam objetos
 
+Não precisa da palavra "New" ao instanciar objetos 
+
 Exemplo de códifo de uma calculadora 
 
 
@@ -377,3 +379,7 @@ calc.startCalculator();
 ------------------------------------------------------------------------------------------------
 
 Funções construtoras 
+
+
+Precisa da palavra NEW para instanciar 
+
