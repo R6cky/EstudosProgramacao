@@ -42,7 +42,6 @@ let showAddress = function(){
 
 Funções são FIRST CLASS OBJECT ( Objetos de primeira classe ), significa que as funções são tratadas como dado
 
-
 Funções podem receber outras funções como parâmetro. 
 Exemplo abaixo: 
 
@@ -84,7 +83,7 @@ pessoa.sexo() // Essa função nãpo possue chave, foi declarada diretamente no 
 
 ------------------------------------------------------------------------------------------------
 PARAMETROS DA FUNÇÃO
-** Nenhum parâmetro foi passado para a função, porém foi possível passar argumentos, utuilizando o "arguments". **
+** Nenhum parâmetro foi passado para a função, porém foi possível passar argumentos, utilizando o "arguments". **
 É possível iterar sobre eles. [ OBS. Somente quando declaramos a função com a palavra FUNCTION] 
 
 
@@ -188,7 +187,7 @@ console.log(quatriplica(50));
 ------------------------------------------------------------------------------------------------
 
 
-Closure: As É o "poder" que as "Subfunções" tem de acessar seus escopos,exemplo abaixo, afunção anônima pode acessar 3 escopos, o da função 
+Closure: As É o "poder" que as "Subfunções" tem de acessar seus escopos,exemplo abaixo, a função anônima pode acessar 3 escopos, o da função 
 "pai" e o escopo global. 
 
 
@@ -382,7 +381,7 @@ Funções construtoras
 
 Função que constrói objetos
 Precisa da palavra NEW para instanciar 
-
+É possível criar atributos ou métodos privados ( basta não utilizar o this.atributo/this.metodo), utilizando o const, let, etc...
 
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -428,7 +427,7 @@ Output:
 ------------------------------------------------------------------------------------------------
 
 
-Funções GERADORAS 
+Funções GERADORAS (generator functions) 
 
 Funções que possibilitam o controle de execução, sua sintaxe é diferente
 
