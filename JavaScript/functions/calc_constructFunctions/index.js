@@ -2,10 +2,9 @@ function Calculator() {
   this.display = document.querySelector(".row-screen");
 
   this.startCalculator = function () {
-    this.backSpace();
     this.enter(), this.btnClicks();
   };
-  this.backSpace = function () {};
+
   this.enter = function () {
     this.display.addEventListener("keyup", (e) => {
       if (e.keyCode === 13) {

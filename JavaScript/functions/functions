@@ -242,7 +242,7 @@ console.log(fisrt_name() + " - " + fisrt_name2()) //Cleton - Polyana
 FUNCOES CALBACK 
 
 
-A baixo está um exemplo de como controlar a ordem de execução de funções que em tese não terpiamos controle sobre 
+A baixo está um exemplo de como controlar a ordem de execução de funções que em tese não teriamos controle sobre 
 o tempo em que elas seriam executadas, simulamos um tempo aleatório com o setTimeout. 
 
 
@@ -307,10 +307,10 @@ São funções que retornam objetos
 
 Não precisa da palavra "New" ao instanciar objetos 
 
-Exemplo de códifo de uma calculadora 
+Exemplo de código de uma calculadora 
 
 
-function calculator(tagHtml) {
+function calculator() {
   return {
     display: document.querySelector(".row-screen"),
 
@@ -318,7 +318,7 @@ function calculator(tagHtml) {
       this.backSpace();
       this.enter(), this.btnClicks();
     },
-    backSpace() {},
+    
     enter() {
       this.display.addEventListener("keyup", (e) => {
         if (e.keyCode === 13) {
@@ -382,6 +382,68 @@ Funções construtoras
 Função que constrói objetos
 Precisa da palavra NEW para instanciar 
 É possível criar atributos ou métodos privados ( basta não utilizar o this.atributo/this.metodo), utilizando o const, let, etc...
+
+function Calculator() {
+  this.display = document.querySelector(".row-screen");
+
+  this.startCalculator = function () {
+    this.backSpace();
+    this.enter(), this.btnClicks();
+  };
+  this.backSpace = function () {};
+  this.enter = function () {
+    this.display.addEventListener("keyup", (e) => {
+      if (e.keyCode === 13) {
+        this.countMaths();
+      }
+    });
+  };
+  this.btnClicks = function () {
+    document.addEventListener("click", (e) => {
+      const textButton = e.target.innerText;
+      if (e.target.classList.contains("num")) {
+        this.btnToDisplay(textButton);
+      }
+      if (e.target.classList.contains("btn-c")) {
+        this.clearDisplay();
+      }
+
+      if (e.target.classList.contains("clear-one")) {
+        this.clearOne();
+      }
+
+      if (e.target.classList.contains("result")) {
+        this.countMaths();
+      }
+    });
+  };
+  this.countMaths = function () {
+    try {
+      let count = eval(this.display.value);
+      if (!count) {
+        alert("Conta inválida!");
+      }
+      this.display.value = count;
+    } catch (error) {
+      console.log(error);
+      alert("Conta inválida!");
+    }
+  };
+  this.clearDisplay = function () {
+    this.display.value = "";
+  };
+  this.btnToDisplay = function (value) {
+    this.display.value += value;
+  };
+  this.clearOne = function () {
+    this.display.value = this.display.value.slice(0, -1);
+  };
+}
+
+const calc = new Calculator();
+calc.startCalculator();
+
+
 
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------

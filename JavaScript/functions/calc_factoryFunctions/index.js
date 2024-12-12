@@ -1,4 +1,4 @@
-function calculator(tagHtml) {
+function calculator() {
   return {
     display: document.querySelector(".row-screen"),
 
@@ -59,10 +59,3 @@ function calculator(tagHtml) {
 
 const calc = calculator();
 calc.startCalculator();
-
-//pressionar botoes e setar na tela
-//somar, subtrair, dividir, multiplicar, expnenciar valores na tela.
-//apagar caracteres na tela um por um e todos de uma vez
-//acrescentar ponto flutuante nos numero decimais
-//acrescentar ordem de prioride com parenteses
-//acrescentar tratativa de erros ao digitar conjunto de caracteres inválidos
