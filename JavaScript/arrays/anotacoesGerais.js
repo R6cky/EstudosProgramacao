@@ -36,3 +36,17 @@ console.log(serieC);
 console.log(times);
 
 //===================================================================================
+
+//concatenar arrays
+
+arr1 = [1, 2, 3];
+arr2 = [4, 5, 6];
+
+//concat
+console.log(arr1.concat(arr2));
+
+//spread ...
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+
+//===================================================================================
