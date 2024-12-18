@@ -183,7 +183,7 @@ console.log(marcas);
 
 //====================================================================================
 
-//Removendo itens em array de objeto com splice
+//Removendo itens em array de objeto com SPLICE
 
 const arr = [
   {

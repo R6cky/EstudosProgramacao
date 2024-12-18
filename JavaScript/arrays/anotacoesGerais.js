@@ -50,3 +50,19 @@ const arr3 = [...arr1, ...arr2];
 console.log(arr3);
 
 //===================================================================================
+
+//inserindo um elemento no array de forma manual
+
+const list = ["cleiton", "polyana", "edneia"];
+
+function addItemFromArray(arr, value) {
+  for (let i = arr.length; i >= 0; i--) {
+    arr[i] = arr[i - 1];
+    if (i === 0) arr[i] = value;
+    //console.log([i])
+  }
+  console.log(arr);
+}
+
+addItemFromArray(list, "Primeiro");
+addItemFromArray(list, "De novo ");
