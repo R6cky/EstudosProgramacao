@@ -215,3 +215,28 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log(arr);
+
+// FILTER -> Filtra o array
+
+// MAP -> Altera o array original
+
+// Reduce -> Reduz o valor do array
+
+const listObj = [
+  { nome: "Ednaiara", idade: "25" },
+  { nome: "Cleber", idade: 35 },
+  { nome: "Cirilo", idade: 21 },
+  { nome: "Bianca", idade: 45 },
+];
+
+let maiorIdade = 0;
+let objIdade = [];
+
+for (let i = 0; i < listObj.length; i++) {
+  if (listObj[i].idade > maiorIdade) {
+    maiorIdade = listObj[i].idade;
+    objIdade = listObj[i];
+  } else {
+    maiorIdade = maiorIdade;
+  }
+}
