@@ -85,6 +85,9 @@ pessoa.sexo() // Essa função nãpo possue chave, foi declarada diretamente no 
 PARAMETROS DA FUNÇÃO
 ** Nenhum parâmetro foi passado para a função, porém foi possível passar argumentos, utilizando o "arguments". **
 É possível iterar sobre eles. [ OBS. Somente quando declaramos a função com a palavra FUNCTION] 
+** O dado ARGUMENTS, é do tipo "Array like", mas não é um array, nem um objeto. 
+Por isso é possível percorrê-lo com for, for in, for of... Mas não possui métodos como filter, map, reduce, ...
+** 'length in arguments' -> verifica se o objeto 'arguments' possui o método 'length', MUITO ÚTIL. 
 
 
 
