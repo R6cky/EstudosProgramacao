@@ -216,12 +216,6 @@ for (let i = 0; i < arr.length; i++) {
 
 console.log(arr);
 
-// FILTER -> Filtra o array
-
-// MAP -> Altera o array original
-
-// Reduce -> Reduz o valor do array
-
 const listObj = [
   { nome: "Ednaiara", idade: "25" },
   { nome: "Cleber", idade: 35 },

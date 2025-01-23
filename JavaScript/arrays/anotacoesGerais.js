@@ -51,7 +51,7 @@ console.log(arr3);
 
 //===================================================================================
 
-//inserindo um elemento no array de forma manual
+//inserindo um elemento no array de forma manual ( NO INÍCIO )
 
 const list = ["cleiton", "polyana", "edneia"];
 
