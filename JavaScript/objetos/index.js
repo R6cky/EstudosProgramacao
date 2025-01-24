@@ -48,6 +48,21 @@ function Notebook(processador, ram) {
     writable: true,
     configurable: false,
   });
+
+  Object.defineProperties(this, {
+    processador: {
+      value: "100",
+      enumerable: true,
+      writable: true,
+      configurable: false,
+    },
+    ram: {
+      value: "100",
+      enumerable: true,
+      writable: true,
+      configurable: false,
+    },
+  });
 }
 
 const mynotebook = new Notebook("i7", "16");
