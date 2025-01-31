@@ -241,3 +241,7 @@ Object.freeze(pessoa); // Não é possível alterar valores do obj
 //     console.log(k[i][j]);
 //   }
 // }
+
+const b = { nome: "cleiton", idade: 30 };
+const c = [...b];
+console.log(c);
