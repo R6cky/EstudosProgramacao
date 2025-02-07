@@ -241,3 +241,13 @@ Object.freeze(pessoa); // Não é possível alterar valores do obj
 //     console.log(k[i][j]);
 //   }
 // }
+
+//=============================================================================================
+//=============================================================================================
+
+//PROTOTYPES -> Base que o JS utiliza para trabalhar com POO
+
+// Cada objeto em JavaScript tem uma propriedade interna, que é chamada de prototype .
+// O protótipo é ele próprio um objeto, então o protótipo terá seu próprio protótipo,
+// fazendo o que é chamado de cadeia de protótipos . A cadeia termina quando alcançamos
+// um protótipo que tem nullpara seu próprio protótipo.

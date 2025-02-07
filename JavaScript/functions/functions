@@ -82,7 +82,8 @@ pessoa.sexo() // Essa função nãpo possue chave, foi declarada diretamente no 
 
 
 ------------------------------------------------------------------------------------------------
-PARAMETROS DA FUNÇÃO
+--PARAMETROS DA FUNÇÃO
+
 ** Nenhum parâmetro foi passado para a função, porém foi possível passar argumentos, utilizando o "arguments". **
 É possível iterar sobre eles. [ OBS. Somente quando declaramos a função com a palavra FUNCTION] 
 ** O dado ARGUMENTS, é do tipo "Array like", mas não é um array, nem um objeto. 
@@ -165,7 +166,7 @@ fn("a", "b, 12,1,1,1")
 ------------------------------------------------------------------------------------------------
 
 
-RETORNO DA FUNÇÃO
+--RETORNO DA FUNÇÃO
 
 
 Exemplo com uma função dentro de outra:
@@ -190,6 +191,8 @@ console.log(quatriplica(50));
 ------------------------------------------------------------------------------------------------
 
 
+
+--CLOSURE
 Closure: As É o "poder" que as "Subfunções" tem de acessar seus escopos,exemplo abaixo, a função anônima pode acessar 3 escopos, o da função 
 "pai" e o escopo global. 
 
@@ -233,7 +236,7 @@ const fn = (name) => {
 
 const fisrt_name = fn("Cleton")
 const fisrt_name2 = fn("Polyana")
-console.log(fisrt_name() + " - " + fisrt_name2()) //Cleton - Polyana
+console.log(fisrt_name() + " - " + fisrt_name2()) //Cleiton - Polyana
 
 
 
@@ -242,7 +245,7 @@ console.log(fisrt_name() + " - " + fisrt_name2()) //Cleton - Polyana
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
-FUNCOES CALBACK 
+--FUNCOES CALLBACK 
 
 
 A baixo está um exemplo de como controlar a ordem de execução de funções que em tese não teriamos controle sobre 
@@ -302,7 +305,34 @@ f3()
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
+--FUNCÔES IMEDIATAS (IIFE)
 
+(function(){
+  console.log("Hello world")
+})()
+
+Envolva a função com parênteses, ela será invocada 
+imediatamente e o escopo global estará protegido
+
+É possível passar parâmetros
+(function(idade, peso, altura){
+  console.log("Hello world")
+})(39, 90, 1.80)
+
+Podem serutilizadas quantas funções forem necessárias,
+de acordo com a necessidade. 
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+-- FUNCOES DE FÁBRICA / FACTORY FUNCTIONS
 Funções de fabrica - factory functions 
 
 
@@ -380,7 +410,7 @@ calc.startCalculator();
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
-Funções construtoras 
+--FUNCOES CONTRUTORAS
 
 Função que constrói objetos
 Precisa da palavra NEW para instanciar 
@@ -453,7 +483,7 @@ calc.startCalculator();
 ------------------------------------------------------------------------------------------------
 
 
-Funções RECURSIVAS 
+--Funções RECURSIVAS 
 
 São funções que são chamadas dentro de si mesmas, dentro de seu escopo. 
 É preciso programar um limite para sua execução, como no exemplo a seguir..
@@ -492,7 +522,7 @@ Output:
 ------------------------------------------------------------------------------------------------
 
 
-Funções GERADORAS (generator functions) 
+--Funções GERADORAS (generator functions) 
 
 Funções que possibilitam o controle de execução, sua sintaxe é diferente
 
@@ -519,7 +549,5 @@ function* geradora2(){
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
-<script src="https://code.responsivevoice.org/responsivevoice. js">
-</script>
-Narração de voz no site
+
 
