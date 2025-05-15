@@ -7,16 +7,13 @@ console.log(sexo) // Apresenta erro ao tentar ler variável antes da declaraçã
 console.log(apelido) // Apresenta erro ao tentar ler variável antes da declaração
 
 let sexo = "masculino";
-const apelido = "Cleitinho"
+const apelido = "cleiton"
 var name = "cleiton";
 
 ------------------------------------------------------------------------------------------------
 
 
 *HOISTING WITH FUNCTIONS* 
-
-
-
 
 showname() // Execultada normalmente
 showPhrase() // Apresenta erro ao tentar ler variável antes da declaração
@@ -37,7 +34,12 @@ let showAddress = function(){
 }
 
 
+--** VARIAVEL DENTRO DA FUNÇÃO COM ESCOPO GLOBAL ? 
 
+function(){
+  idade = 30
+}
+console.log(idade)
 ------------------------------------------------------------------------------------------------
 
 Funções são FIRST CLASS OBJECT ( Objetos de primeira classe ), significa que as funções são tratadas como dado
